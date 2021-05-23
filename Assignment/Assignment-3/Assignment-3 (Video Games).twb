@@ -1,0 +1,634 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20211.21.0420.1112                               -->
+<workbook original-version='18.1' source-build='2021.1.1 (20211.21.0420.1112)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <MapboxVectorStylesAndLayers />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Data (Data)' inline='true' name='federated.0ws11an19kb10n1661aot15epdfv' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Data' name='excel-direct.03f6f4r0kyv22a18uise21q9emf3'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/Ertuğrul/Documents/Data Science And ML/Tableau-Data-Visulization/Dataset/Data.xls' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Pivot' type='pivot'>
+          <columns>
+            <column datatype='string' name='Pivot Field Names' />
+            <column datatype='integer' name='Pivot Field Values' />
+          </columns>
+          <tag name='Pivot Field Names'>
+            <value name='[3/2017]' />
+            <value name='[3/2018]' />
+            <value name='[3/2019]' />
+            <value name='[3/2020]' />
+          </tag>
+          <groups>
+            <group name='Pivot Field Values'>
+              <field name='[Data].[3/2017]' />
+              <field name='[Data].[3/2018]' />
+              <field name='[Data].[3/2019]' />
+              <field name='[Data].[3/2020]' />
+            </group>
+          </groups>
+          <relation connection='excel-direct.03f6f4r0kyv22a18uise21q9emf3' name='Data' table='[Data$]' type='table'>
+            <columns gridOrigin='A1:F9:no:A1:F9:0' header='yes' outcome='6'>
+              <column datatype='string' name='Nintendo Switch Platform' ordinal='0' />
+              <column datatype='string' name='Metric' ordinal='1' />
+              <column datatype='integer' name='3/2017' ordinal='2' />
+              <column datatype='integer' name='3/2018' ordinal='3' />
+              <column datatype='integer' name='3/2019' ordinal='4' />
+              <column datatype='integer' name='3/2020' ordinal='5' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Pivot' type='pivot'>
+          <columns>
+            <column datatype='string' name='Pivot Field Names' />
+            <column datatype='integer' name='Pivot Field Values' />
+          </columns>
+          <tag name='Pivot Field Names'>
+            <value name='[3/2017]' />
+            <value name='[3/2018]' />
+            <value name='[3/2019]' />
+            <value name='[3/2020]' />
+          </tag>
+          <groups>
+            <group name='Pivot Field Values'>
+              <field name='[Data].[3/2017]' />
+              <field name='[Data].[3/2018]' />
+              <field name='[Data].[3/2019]' />
+              <field name='[Data].[3/2020]' />
+            </group>
+          </groups>
+          <relation connection='excel-direct.03f6f4r0kyv22a18uise21q9emf3' name='Data' table='[Data$]' type='table'>
+            <columns gridOrigin='A1:F9:no:A1:F9:0' header='yes' outcome='6'>
+              <column datatype='string' name='Nintendo Switch Platform' ordinal='0' />
+              <column datatype='string' name='Metric' ordinal='1' />
+              <column datatype='integer' name='3/2017' ordinal='2' />
+              <column datatype='integer' name='3/2018' ordinal='3' />
+              <column datatype='integer' name='3/2019' ordinal='4' />
+              <column datatype='integer' name='3/2020' ordinal='5' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Data]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:F9:no:A1:F9:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Nintendo Switch Platform</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Nintendo Switch Platform]</local-name>
+            <parent-name>[Data]</parent-name>
+            <remote-alias>Nintendo Switch Platform</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LTR_RTR_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Data_F5753329863F4C858C1A08A391721304]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Metric</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Metric]</local-name>
+            <parent-name>[Data]</parent-name>
+            <remote-alias>Metric</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LTR_RTR_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Data_F5753329863F4C858C1A08A391721304]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Pivot Field Names</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Pivot Field Names]</local-name>
+            <parent-name>[Pivot]</parent-name>
+            <remote-alias>Pivot Field Names</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Data_F5753329863F4C858C1A08A391721304]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Pivot Field Values</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Pivot Field Values]</local-name>
+            <parent-name>[Pivot]</parent-name>
+            <remote-alias>Pivot Field Values</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Data_F5753329863F4C858C1A08A391721304]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Parts' datatype='string' name='[Metric - Split 1]' role='dimension' type='nominal' user:SplitFieldIndex='5' user:SplitFieldOrigin='[federated.0ws11an19kb10n1661aot15epdfv].[Metric]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( SPLIT( SPLIT( SPLIT( SPLIT( [Metric], &quot;ten&quot;, 2 ), &quot;thousand&quot;, 2 ), &quot;units&quot;, 2 ), &quot;(&quot;, 2 ), &quot;)&quot;, 1 ) )' />
+      </column>
+      <column datatype='string' hidden='true' name='[Metric]' role='dimension' type='nominal' />
+      <column caption='Country' datatype='string' name='[Nintendo Switch Platform - Split 2]' role='dimension' semantic-role='[Country].[Name]' type='nominal' user:SplitFieldIndex='4' user:SplitFieldOrigin='[federated.0ws11an19kb10n1661aot15epdfv].[Nintendo Switch Platform]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( SPLIT( SPLIT( [Nintendo Switch Platform], &quot;Nintendo&quot;, 2 ), &quot;Switch&quot;, 2 ), &quot;/&quot;, 2 ) )' />
+        <semantic-values semantic-role='[Country].[Name]'>
+          <semantic-value key='&quot;The Americas&quot;' value='&quot;United States&quot;' />
+        </semantic-values>
+      </column>
+      <column datatype='string' hidden='true' name='[Nintendo Switch Platform]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Year' datatype='integer' name='[Pivot Field Names - Split 1]' role='dimension' type='ordinal' user:SplitFieldIndex='1' user:SplitFieldOrigin='[federated.0ws11an19kb10n1661aot15epdfv].[Pivot Field Names]'>
+        <calculation class='tableau' formula='INT( SPLIT( SPLIT( [Pivot Field Names], &quot;3&quot;, 2 ), &quot;/&quot;, 2 ) )' />
+      </column>
+      <column caption='Month' datatype='string' name='[Pivot Field Names - Split 2]' role='dimension' type='nominal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[federated.0ws11an19kb10n1661aot15epdfv].[Pivot Field Names]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [Pivot Field Names], &quot;/&quot;, 1 ) )' />
+      </column>
+      <column datatype='string' hidden='true' name='[Pivot Field Names]' role='dimension' type='nominal' />
+      <column caption='Quantity' datatype='integer' name='[Pivot Field Values]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='Data' datatype='table' name='[__tableau_internal_object_id__].[Data_F5753329863F4C858C1A08A391721304]' role='measure' type='quantitative' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Turkey&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='Pivot Field Names - Split 1' />
+        <field-sort-custom-order field='Pivot Field Names - Split 2' />
+        <field-sort-custom-order field='Pivot Field Values' />
+        <field-sort-custom-order field='Nintendo Switch Platform - Split 2' />
+        <field-sort-custom-order field='Metric - Split 1' />
+      </field-sort-info>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='Data' id='Data_F5753329863F4C858C1A08A391721304'>
+            <properties context=''>
+              <relation name='Pivot' type='pivot'>
+                <columns>
+                  <column datatype='string' name='Pivot Field Names' />
+                  <column datatype='integer' name='Pivot Field Values' />
+                </columns>
+                <tag name='Pivot Field Names'>
+                  <value name='[3/2017]' />
+                  <value name='[3/2018]' />
+                  <value name='[3/2019]' />
+                  <value name='[3/2020]' />
+                </tag>
+                <groups>
+                  <group name='Pivot Field Values'>
+                    <field name='[Data].[3/2017]' />
+                    <field name='[Data].[3/2018]' />
+                    <field name='[Data].[3/2019]' />
+                    <field name='[Data].[3/2020]' />
+                  </group>
+                </groups>
+                <relation connection='excel-direct.03f6f4r0kyv22a18uise21q9emf3' name='Data' table='[Data$]' type='table'>
+                  <columns gridOrigin='A1:F9:no:A1:F9:0' header='yes' outcome='6'>
+                    <column datatype='string' name='Nintendo Switch Platform' ordinal='0' />
+                    <column datatype='string' name='Metric' ordinal='1' />
+                    <column datatype='integer' name='3/2017' ordinal='2' />
+                    <column datatype='integer' name='3/2018' ordinal='3' />
+                    <column datatype='integer' name='3/2019' ordinal='4' />
+                    <column datatype='integer' name='3/2020' ordinal='5' />
+                  </columns>
+                </relation>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Country Part Sales'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Data (Data)' name='federated.0ws11an19kb10n1661aot15epdfv' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0ws11an19kb10n1661aot15epdfv'>
+            <column caption='Parts' datatype='string' name='[Metric - Split 1]' role='dimension' type='nominal' user:SplitFieldIndex='5' user:SplitFieldOrigin='[federated.0ws11an19kb10n1661aot15epdfv].[Metric]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( SPLIT( SPLIT( SPLIT( SPLIT( [Metric], &quot;ten&quot;, 2 ), &quot;thousand&quot;, 2 ), &quot;units&quot;, 2 ), &quot;(&quot;, 2 ), &quot;)&quot;, 1 ) )' />
+            </column>
+            <column datatype='string' hidden='true' name='[Metric]' role='dimension' type='nominal' />
+            <column caption='Country' datatype='string' name='[Nintendo Switch Platform - Split 2]' role='dimension' semantic-role='[Country].[Name]' type='nominal' user:SplitFieldIndex='4' user:SplitFieldOrigin='[federated.0ws11an19kb10n1661aot15epdfv].[Nintendo Switch Platform]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( SPLIT( SPLIT( [Nintendo Switch Platform], &quot;Nintendo&quot;, 2 ), &quot;Switch&quot;, 2 ), &quot;/&quot;, 2 ) )' />
+              <semantic-values semantic-role='[Country].[Name]'>
+                <semantic-value key='&quot;The Americas&quot;' value='&quot;United States&quot;' />
+              </semantic-values>
+            </column>
+            <column datatype='string' hidden='true' name='[Nintendo Switch Platform]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='Year' datatype='integer' name='[Pivot Field Names - Split 1]' role='dimension' type='ordinal' user:SplitFieldIndex='1' user:SplitFieldOrigin='[federated.0ws11an19kb10n1661aot15epdfv].[Pivot Field Names]'>
+              <calculation class='tableau' formula='INT( SPLIT( SPLIT( [Pivot Field Names], &quot;3&quot;, 2 ), &quot;/&quot;, 2 ) )' />
+            </column>
+            <column datatype='string' hidden='true' name='[Pivot Field Names]' role='dimension' type='nominal' />
+            <column caption='Quantity' datatype='integer' name='[Pivot Field Values]' role='measure' type='quantitative' />
+            <column-instance column='[Metric - Split 1]' derivation='None' name='[none:Metric - Split 1:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Nintendo Switch Platform - Split 2]' derivation='None' name='[none:Nintendo Switch Platform - Split 2:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Pivot Field Names - Split 1]' derivation='None' name='[none:Pivot Field Names - Split 1:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Pivot Field Values]' derivation='Sum' name='[sum:Pivot Field Values:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0ws11an19kb10n1661aot15epdfv].[none:Nintendo Switch Platform - Split 2:nk]' value='138' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0ws11an19kb10n1661aot15epdfv].[none:Metric - Split 1:nk]' />
+              <text column='[federated.0ws11an19kb10n1661aot15epdfv].[none:Metric - Split 1:nk]' />
+              <text column='[federated.0ws11an19kb10n1661aot15epdfv].[sum:Pivot Field Values:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0ws11an19kb10n1661aot15epdfv].[sum:Pivot Field Values:qk]</rows>
+        <cols>([federated.0ws11an19kb10n1661aot15epdfv].[none:Pivot Field Names - Split 1:ok] / [federated.0ws11an19kb10n1661aot15epdfv].[none:Nintendo Switch Platform - Split 2:nk])</cols>
+      </table>
+      <simple-id uuid='{EC3F44A7-31FE-4FFB-8042-E71F355D8C0F}' />
+    </worksheet>
+    <worksheet name='Video Game'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Data (Data)' name='federated.0ws11an19kb10n1661aot15epdfv' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0ws11an19kb10n1661aot15epdfv'>
+            <column caption='Parts' datatype='string' name='[Metric - Split 1]' role='dimension' type='nominal' user:SplitFieldIndex='5' user:SplitFieldOrigin='[federated.0ws11an19kb10n1661aot15epdfv].[Metric]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( SPLIT( SPLIT( SPLIT( SPLIT( [Metric], &quot;ten&quot;, 2 ), &quot;thousand&quot;, 2 ), &quot;units&quot;, 2 ), &quot;(&quot;, 2 ), &quot;)&quot;, 1 ) )' />
+            </column>
+            <column datatype='string' hidden='true' name='[Metric]' role='dimension' type='nominal' />
+            <column caption='Country' datatype='string' name='[Nintendo Switch Platform - Split 2]' role='dimension' semantic-role='[Country].[Name]' type='nominal' user:SplitFieldIndex='4' user:SplitFieldOrigin='[federated.0ws11an19kb10n1661aot15epdfv].[Nintendo Switch Platform]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( SPLIT( SPLIT( [Nintendo Switch Platform], &quot;Nintendo&quot;, 2 ), &quot;Switch&quot;, 2 ), &quot;/&quot;, 2 ) )' />
+              <semantic-values semantic-role='[Country].[Name]'>
+                <semantic-value key='&quot;The Americas&quot;' value='&quot;United States&quot;' />
+              </semantic-values>
+            </column>
+            <column datatype='string' hidden='true' name='[Nintendo Switch Platform]' role='dimension' type='nominal' />
+            <column caption='Quantity' datatype='integer' name='[Pivot Field Values]' role='measure' type='quantitative' />
+            <column-instance column='[Metric - Split 1]' derivation='None' name='[none:Metric - Split 1:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Nintendo Switch Platform - Split 2]' derivation='None' name='[none:Nintendo Switch Platform - Split 2:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Pivot Field Values]' derivation='Sum' name='[sum:Pivot Field Values:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0ws11an19kb10n1661aot15epdfv].[none:Nintendo Switch Platform - Split 2:nk]' value='402' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0ws11an19kb10n1661aot15epdfv].[none:Metric - Split 1:nk]' />
+              <size column='[federated.0ws11an19kb10n1661aot15epdfv].[none:Metric - Split 1:nk]' />
+              <text column='[federated.0ws11an19kb10n1661aot15epdfv].[none:Metric - Split 1:nk]' />
+              <text column='[federated.0ws11an19kb10n1661aot15epdfv].[sum:Pivot Field Values:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0ws11an19kb10n1661aot15epdfv].[sum:Pivot Field Values:qk]</rows>
+        <cols>[federated.0ws11an19kb10n1661aot15epdfv].[none:Nintendo Switch Platform - Split 2:nk]</cols>
+      </table>
+      <simple-id uuid='{D9840FCE-CD97-4FD0-B051-2C43F666E1FC}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' name='Video Game'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0ws11an19kb10n1661aot15epdfv].[none:Metric - Split 1:nk]' type='color' />
+            <card pane-specification-id='0' param='[federated.0ws11an19kb10n1661aot15epdfv].[none:Metric - Split 1:nk]' type='size' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.0ws11an19kb10n1661aot15epdfv].[none:Metric - Split 1:nk]</field>
+            <field>[federated.0ws11an19kb10n1661aot15epdfv].[none:Nintendo Switch Platform - Split 2:nk]</field>
+            <field>[federated.0ws11an19kb10n1661aot15epdfv].[none:Pivot Field Names - Split 1:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{27150BA2-7CB1-4E6B-BBC8-E2164EA94EB0}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Country Part Sales'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0ws11an19kb10n1661aot15epdfv].[none:Metric - Split 1:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.0ws11an19kb10n1661aot15epdfv].[none:Metric - Split 1:nk]</field>
+            <field>[federated.0ws11an19kb10n1661aot15epdfv].[none:Nintendo Switch Platform - Split 2:nk]</field>
+            <field>[federated.0ws11an19kb10n1661aot15epdfv].[none:Pivot Field Names - Split 1:ok]</field>
+          </color-one-way>
+        </highlight>
+        <default-map-tool-selection tool='2' />
+      </viewpoint>
+      <simple-id uuid='{C0689C13-4754-41BE-9639-7655B7FDD648}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Country Part Sales' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Video Game' width='192'>
+      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
+      rkJggg==
+    </thumbnail>
+  </thumbnails>
+</workbook>

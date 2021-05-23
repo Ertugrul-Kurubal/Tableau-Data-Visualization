@@ -3,11 +3,13 @@
 <!-- build 20211.21.0420.1112                               -->
 <workbook original-version='18.1' source-build='2021.1.1 (20211.21.0420.1112)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts />
     <MapboxVectorStylesAndLayers />
     <_.fcp.MarkAnimation.true...MarkAnimation />
     <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
     <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
     <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <_.fcp.SetMembershipControl.true...SetMembershipControl />
     <SheetIdentifierTracking />
     <WindowsPersistSimpleIdentifiers />
   </document-format-change-manifest>
@@ -233,7 +235,7 @@
     <mapsource name='Tableau' />
   </mapsources>
   <worksheets>
-    <worksheet name='Country Part Sales'>
+    <worksheet name='Country Part Sales Year'>
       <table>
         <view>
           <datasources>
@@ -302,7 +304,7 @@
       </table>
       <simple-id uuid='{EC3F44A7-31FE-4FFB-8042-E71F355D8C0F}' />
     </worksheet>
-    <worksheet name='Video Game'>
+    <worksheet name='Total Parts Sales'>
       <table>
         <view>
           <datasources>
@@ -364,8 +366,32 @@
       <simple-id uuid='{D9840FCE-CD97-4FD0-B051-2C43F666E1FC}' />
     </worksheet>
   </worksheets>
+  <dashboards>
+    <dashboard name='Video Game D'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones />
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='4' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='3' param='vert' w='98400' x='800' y='1000' />
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{EA12DAA2-AF2C-4DC4-B370-BB90C91D1A68}' />
+    </dashboard>
+  </dashboards>
   <windows source-height='30'>
-    <window class='worksheet' name='Video Game'>
+    <window class='worksheet' maximized='true' name='Total Parts Sales'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -404,7 +430,7 @@
       </viewpoint>
       <simple-id uuid='{27150BA2-7CB1-4E6B-BBC8-E2164EA94EB0}' />
     </window>
-    <window class='worksheet' maximized='true' name='Country Part Sales'>
+    <window class='worksheet' name='Country Part Sales Year'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -443,9 +469,14 @@
       </viewpoint>
       <simple-id uuid='{C0689C13-4754-41BE-9639-7655B7FDD648}' />
     </window>
+    <window class='dashboard' name='Video Game D'>
+      <viewpoints />
+      <active id='-1' />
+      <simple-id uuid='{6B46CAF5-ABC4-4C83-8749-4616D68F382F}' />
+    </window>
   </windows>
   <thumbnails>
-    <thumbnail height='192' name='Country Part Sales' width='192'>
+    <thumbnail height='192' name='Country Part Sales Year' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
       AAARaUlEQVR4nO3dSWwcV37H8e+rqt53NpubKInUaknePV7GQeBJnAUJBmMgM8YkSI5BDkGA
       5BxggCABchkghwC5+JYcAmQwWTGTQ+IcPIEzcWI7413WQkkUSXEnu6v3Wl4OrcUUKYuubra6
@@ -531,7 +562,7 @@
       wHJ3tvT7sb2+wpW5G/gBNlUP/nA52PZX3xs8aH1Os8rFzz6jVq/TcjV2dX9DMBqGwdxnH3Nt
       cQnb3tkmW8uL1Jy9/+hWvc5+J3uqlTe5eOkKzh6D2/0/pSugI/oHO8gAAAAASUVORK5CYII=
     </thumbnail>
-    <thumbnail height='192' name='Video Game' width='192'>
+    <thumbnail height='192' name='Total Parts Sales' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
       AAAT9klEQVR4nO3dfYwc9X3H8ffM7PPtPd+tfXvnezDGj4AdTMA82CQkxIEQ1IQmfVCT0Cqi
       SapUSZoqVVtVqkKltIpapVHTNG3SKmqlVIgWghqgUJME/BA4DMbmCH4837Pvee9hd2d3Zn79
@@ -629,6 +660,20 @@
       sWMHAIlEgrm5Oaqrq32xB1jVSbDjONi2Ld+oq6SU8sXG5KZr/QxXdRn04oYvBVidi1dSxLW7
       1s9w1Z+61/5wI4N9nB8YcTvGinjtMwTIZuexbcftGMt2rZ/h/wNHAblUxfh+YgAAAABJRU5E
       rkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='Video Game D' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
     </thumbnail>
   </thumbnails>
 </workbook>

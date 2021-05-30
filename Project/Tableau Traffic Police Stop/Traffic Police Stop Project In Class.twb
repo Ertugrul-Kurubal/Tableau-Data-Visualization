@@ -39,7 +39,7 @@
             <column datatype='real' name='police_department' ordinal='8' />
             <column datatype='string' name='driver_gender' ordinal='9' />
             <column datatype='string' name='driver_age_raw' ordinal='10' />
-            <column datatype='string' name='driver_age' ordinal='11' />
+            <column datatype='string' date-parse-format='mmss.S' name='driver_age' ordinal='11' />
             <column datatype='string' name='driver_race_raw' ordinal='12' />
             <column datatype='string' name='driver_race' ordinal='13' />
             <column datatype='string' name='violation_raw' ordinal='14' />
@@ -69,7 +69,7 @@
             <column datatype='real' name='police_department' ordinal='8' />
             <column datatype='string' name='driver_gender' ordinal='9' />
             <column datatype='string' name='driver_age_raw' ordinal='10' />
-            <column datatype='string' name='driver_age' ordinal='11' />
+            <column datatype='string' date-parse-format='mmss.S' name='driver_age' ordinal='11' />
             <column datatype='string' name='driver_race_raw' ordinal='12' />
             <column datatype='string' name='driver_race' ordinal='13' />
             <column datatype='string' name='violation_raw' ordinal='14' />
@@ -93,7 +93,6 @@
             <parent-name>[RI_cleaned.csv]</parent-name>
             <remote-alias />
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <contains-null>true</contains-null>
             <attributes>
               <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
@@ -118,12 +117,10 @@
             <ordinal>0</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>state</remote-name>
@@ -134,12 +131,10 @@
             <ordinal>1</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>stop_date</remote-name>
@@ -150,9 +145,7 @@
             <ordinal>2</ordinal>
             <local-type>date</local-type>
             <aggregation>Year</aggregation>
-            <approx-count>509681</approx-count>
             <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>stop_time</remote-name>
@@ -163,9 +156,7 @@
             <ordinal>3</ordinal>
             <local-type>datetime</local-type>
             <aggregation>Hour</aggregation>
-            <approx-count>509681</approx-count>
             <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>location_raw</remote-name>
@@ -176,12 +167,10 @@
             <ordinal>4</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>county_name</remote-name>
@@ -192,12 +181,11 @@
             <ordinal>5</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
+            <approx-count>1</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>county_fips</remote-name>
@@ -208,12 +196,11 @@
             <ordinal>6</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
+            <approx-count>1</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>fine_grained_location</remote-name>
@@ -224,12 +211,11 @@
             <ordinal>7</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
+            <approx-count>1</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>police_department</remote-name>
@@ -240,9 +226,7 @@
             <ordinal>8</ordinal>
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
-            <approx-count>509681</approx-count>
             <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>driver_gender</remote-name>
@@ -253,12 +237,10 @@
             <ordinal>9</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>driver_age_raw</remote-name>
@@ -269,12 +251,10 @@
             <ordinal>10</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>driver_age</remote-name>
@@ -285,12 +265,10 @@
             <ordinal>11</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>driver_race_raw</remote-name>
@@ -301,12 +279,10 @@
             <ordinal>12</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>driver_race</remote-name>
@@ -317,12 +293,10 @@
             <ordinal>13</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>violation_raw</remote-name>
@@ -333,12 +307,10 @@
             <ordinal>14</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>violation</remote-name>
@@ -349,12 +321,10 @@
             <ordinal>15</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>search_conducted</remote-name>
@@ -365,9 +335,7 @@
             <ordinal>16</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>search_type_raw</remote-name>
@@ -378,12 +346,10 @@
             <ordinal>17</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>search_type</remote-name>
@@ -394,12 +360,10 @@
             <ordinal>18</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>contraband_found</remote-name>
@@ -410,9 +374,7 @@
             <ordinal>19</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>stop_outcome</remote-name>
@@ -423,12 +385,10 @@
             <ordinal>20</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>is_arrested</remote-name>
@@ -439,9 +399,7 @@
             <ordinal>21</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>stop_duration</remote-name>
@@ -452,12 +410,10 @@
             <ordinal>22</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>out_of_state</remote-name>
@@ -468,9 +424,7 @@
             <ordinal>23</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>drugs_related_stop</remote-name>
@@ -481,9 +435,7 @@
             <ordinal>24</ordinal>
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>district</remote-name>
@@ -494,12 +446,10 @@
             <ordinal>25</ordinal>
             <local-type>string</local-type>
             <aggregation>Count</aggregation>
-            <approx-count>509681</approx-count>
             <scale>1</scale>
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LTR_RTR' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
           </metadata-record>
         </metadata-records>
       </connection>
@@ -542,6 +492,10 @@
       <_.fcp.ObjectModelTableType.true...column caption='RI_cleaned.csv' datatype='table' name='[__tableau_internal_object_id__].[RI_cleaned.csv_B1192FFB2FFB4EB4A604D91B377237B1]' role='measure' type='quantitative' />
       <column datatype='string' hidden='true' name='[county_fips]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
       <column datatype='string' hidden='true' name='[county_name]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column caption='Driver Age' datatype='integer' name='[driver_age - Split 1]' role='measure' type='quantitative' user:SplitFieldIndex='1' user:SplitFieldOrigin='[federated.1ea4es817asrd818ny1iz067y2jy].[driver_age]'>
+        <calculation class='tableau' formula='INT( SPLIT( [driver_age], &quot;.&quot;, 1 ) )' />
+      </column>
+      <column datatype='string' hidden='true' name='[driver_age]' role='dimension' type='nominal' />
       <column datatype='string' hidden='true' name='[driver_age_raw]' role='dimension' type='nominal' />
       <column datatype='string' name='[driver_gender]' role='dimension' type='nominal' />
       <column datatype='string' hidden='true' name='[driver_race_raw]' role='dimension' type='nominal' />
@@ -555,7 +509,7 @@
       <column-instance column='[Calculation_139893111260377089]' derivation='None' name='[none:Calculation_139893111260377089:nk]' pivot='key' type='nominal' />
       <column-instance column='[driver_gender]' derivation='None' name='[none:driver_gender:nk]' pivot='key' type='nominal' />
       <column-instance column='[stop_outcome]' derivation='None' name='[none:stop_outcome:nk]' pivot='key' type='nominal' />
-      <extract _.fcp.ObjectModelExtractV2.true...object-id='' count='-1' enabled='true' units='records'>
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' count='-1' enabled='false' units='records'>
         <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/Ertuğrul/Documents/Data Science And ML/Tableau-Data-Visulization/Project/Tableau Traffic Police Stop/RI_cleaned.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='05/29/2021 12:21:03 PM' username='tableau_internal_user'>
           <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
           <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Extract' table='[Extract].[Extract]' type='table' />
@@ -831,6 +785,29 @@
       <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
       <style>
         <style-rule element='mark'>
+          <encoding attr='color' field='[none:Calculation_139893111260377089:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Equipment&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Seat belt&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Registration/plates&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Unknown&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Other&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;Speeding&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Moving violation&quot;</bucket>
+            </map>
+          </encoding>
           <encoding attr='color' field='[none:stop_outcome:nk]' type='palette'>
             <map to='#4e79a7'>
               <bucket>%null%</bucket>
@@ -865,29 +842,6 @@
               <bucket>&quot;M&quot;</bucket>
             </map>
           </encoding>
-          <encoding attr='color' field='[none:Calculation_139893111260377089:nk]' type='palette'>
-            <map to='#4e79a7'>
-              <bucket>&quot;Equipment&quot;</bucket>
-            </map>
-            <map to='#59a14f'>
-              <bucket>&quot;Seat belt&quot;</bucket>
-            </map>
-            <map to='#76b7b2'>
-              <bucket>&quot;Registration/plates&quot;</bucket>
-            </map>
-            <map to='#b07aa1'>
-              <bucket>&quot;Unknown&quot;</bucket>
-            </map>
-            <map to='#e15759'>
-              <bucket>&quot;Other&quot;</bucket>
-            </map>
-            <map to='#edc948'>
-              <bucket>&quot;Speeding&quot;</bucket>
-            </map>
-            <map to='#f28e2b'>
-              <bucket>&quot;Moving violation&quot;</bucket>
-            </map>
-          </encoding>
         </style-rule>
       </style>
       <semantic-values>
@@ -911,7 +865,7 @@
                   <column datatype='real' name='police_department' ordinal='8' />
                   <column datatype='string' name='driver_gender' ordinal='9' />
                   <column datatype='string' name='driver_age_raw' ordinal='10' />
-                  <column datatype='string' name='driver_age' ordinal='11' />
+                  <column datatype='string' date-parse-format='mmss.S' name='driver_age' ordinal='11' />
                   <column datatype='string' name='driver_race_raw' ordinal='12' />
                   <column datatype='string' name='driver_race' ordinal='13' />
                   <column datatype='string' name='violation_raw' ordinal='14' />
@@ -3321,7 +3275,7 @@
       </viewpoint>
       <simple-id uuid='{99BD09FA-B2B6-4706-9277-F1B991786F59}' />
     </window>
-    <window class='worksheet' maximized='true' name='Sheet 27'>
+    <window class='worksheet' name='Sheet 27'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -3359,7 +3313,7 @@
       </viewpoint>
       <simple-id uuid='{5785AA90-A76A-4C16-80BF-C6123EE9D70A}' />
     </window>
-    <window class='worksheet' name='Sheet 28'>
+    <window class='worksheet' maximized='true' name='Sheet 28'>
       <cards>
         <edge name='left'>
           <strip size='160'>

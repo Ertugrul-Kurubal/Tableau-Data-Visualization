@@ -453,6 +453,26 @@
       <column caption='Rating' datatype='string' name='[Calculation_1271985467624271874]' role='dimension' type='nominal'>
         <calculation class='tableau' formula='CASE [Calculation_1271985467623280641]&#13;&#10;WHEN 0 THEN &quot;good&quot;&#13;&#10;WHEN 1 THEN &quot;bad&quot;&#13;&#10;WHEN 2 THEN &quot;bad&quot;&#13;&#10;WHEN 3 THEN &quot;bad&quot;&#13;&#10;WHEN 4 THEN &quot;bad&quot;&#13;&#10;ELSE &quot;worse&quot;&#13;&#10;END' />
       </column>
+      <column aggregation='Sum' datatype='integer' name='[WT01]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT02]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT03]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT04]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT05]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT06]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT07]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT08]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT09]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT10]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT11]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT13]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT14]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT15]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT16]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT17]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT18]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT19]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT21]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[WT22]' role='dimension' type='ordinal' />
       <_.fcp.ObjectModelTableType.true...column caption='weather.csv' datatype='table' name='[__tableau_internal_object_id__].[weather.csv_C142BAA56D7843E5BEFDE552409F5CE5]' role='measure' type='quantitative' />
       <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
       <semantic-values>
@@ -526,7 +546,11 @@
           </slices>
           <aggregation value='false' />
         </view>
-        <style />
+        <style>
+          <style-rule element='table'>
+            <format attr='show-null-value-warning' value='false' />
+          </style-rule>
+        </style>
         <panes>
           <pane selection-relaxation-option='selection-relaxation-allow'>
             <view>
@@ -604,26 +628,26 @@
             <column caption='Rating' datatype='string' name='[Calculation_1271985467624271874]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='CASE [Calculation_1271985467623280641]&#13;&#10;WHEN 0 THEN &quot;good&quot;&#13;&#10;WHEN 1 THEN &quot;bad&quot;&#13;&#10;WHEN 2 THEN &quot;bad&quot;&#13;&#10;WHEN 3 THEN &quot;bad&quot;&#13;&#10;WHEN 4 THEN &quot;bad&quot;&#13;&#10;ELSE &quot;worse&quot;&#13;&#10;END' />
             </column>
-            <column datatype='integer' name='[WT01]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT02]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT03]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT04]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT05]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT06]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT07]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT08]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT09]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT10]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT11]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT13]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT14]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT15]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT16]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT17]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT18]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT19]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT21]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[WT22]' role='measure' type='quantitative' />
+            <column aggregation='Sum' datatype='integer' name='[WT01]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT02]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT03]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT04]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT05]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT06]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT07]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT08]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT09]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT10]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT11]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT13]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT14]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT15]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT16]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT17]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT18]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT19]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT21]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[WT22]' role='dimension' type='ordinal' />
             <_.fcp.ObjectModelTableType.false...column caption='weather.csv' datatype='integer' name='[__tableau_internal_object_id__].[weather.csv_C142BAA56D7843E5BEFDE552409F5CE5]' role='measure' type='quantitative' />
             <column-instance column='[__tableau_internal_object_id__].[weather.csv_C142BAA56D7843E5BEFDE552409F5CE5]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:weather.csv_C142BAA56D7843E5BEFDE552409F5CE5:qk]' pivot='key' type='quantitative' />
             <_.fcp.ObjectModelTableType.true...column caption='weather.csv' datatype='table' name='[__tableau_internal_object_id__].[weather.csv_C142BAA56D7843E5BEFDE552409F5CE5]' role='measure' type='quantitative' />
@@ -653,7 +677,7 @@
     </worksheet>
   </worksheets>
   <windows source-height='30'>
-    <window class='worksheet' name='Sheet 1'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -714,7 +738,7 @@
       </viewpoint>
       <simple-id uuid='{7432D34C-F94E-48DE-BA7E-DFC0F9BF4829}' />
     </window>
-    <window class='worksheet' maximized='true' name='Sheet 3'>
+    <window class='worksheet' name='Sheet 3'>
       <cards>
         <edge name='left'>
           <strip size='160'>

@@ -1,0 +1,1133 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20211.21.0511.0935                               -->
+<workbook original-version='18.1' source-build='2021.1.2 (20211.21.0511.0935)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='weather.csv+ (Multiple Connections)' inline='true' name='federated.0fql8jq1wf8sv6128e93p1o09vk7' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='weather' name='textscan.1l993ul0d5krht11re92d1vm7vhl'>
+            <connection class='textscan' directory='C:/Users/Ertuğrul/Documents/Data Science And ML/Tableau-Data-Visulization/Project/Tableau Traffic Police Stop' filename='weather.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='RI_cleaned' name='textscan.1qy40121dz409l1484zp1148l5h9'>
+            <connection class='textscan' directory='C:/Users/Ertuğrul/Documents/Data Science And ML/Tableau-Data-Visulization/Project/Tableau Traffic Police Stop' filename='RI_cleaned.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[weather.csv].[DATE]' />
+              <expression op='[RI_cleaned.csv].[stop_date]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.1l993ul0d5krht11re92d1vm7vhl' name='weather.csv' table='[weather#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='tr_TR' separator=','>
+              <column datatype='string' name='STATION' ordinal='0' />
+              <column datatype='date' name='DATE' ordinal='1' />
+              <column datatype='string' name='AWND' ordinal='2' />
+              <column datatype='string' name='TAVG' ordinal='3' />
+              <column datatype='integer' name='TMAX' ordinal='4' />
+              <column datatype='integer' name='TMIN' ordinal='5' />
+              <column datatype='string' name='WT01' ordinal='6' />
+              <column datatype='string' name='WT02' ordinal='7' />
+              <column datatype='string' name='WT03' ordinal='8' />
+              <column datatype='string' name='WT04' ordinal='9' />
+              <column datatype='string' name='WT05' ordinal='10' />
+              <column datatype='string' name='WT06' ordinal='11' />
+              <column datatype='string' name='WT07' ordinal='12' />
+              <column datatype='string' name='WT08' ordinal='13' />
+              <column datatype='string' name='WT09' ordinal='14' />
+              <column datatype='string' name='WT10' ordinal='15' />
+              <column datatype='string' name='WT11' ordinal='16' />
+              <column datatype='string' name='WT13' ordinal='17' />
+              <column datatype='string' name='WT14' ordinal='18' />
+              <column datatype='string' name='WT15' ordinal='19' />
+              <column datatype='string' name='WT16' ordinal='20' />
+              <column datatype='string' name='WT17' ordinal='21' />
+              <column datatype='string' name='WT18' ordinal='22' />
+              <column datatype='string' name='WT19' ordinal='23' />
+              <column datatype='string' name='WT21' ordinal='24' />
+              <column datatype='string' name='WT22' ordinal='25' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1qy40121dz409l1484zp1148l5h9' name='RI_cleaned.csv' table='[RI_cleaned#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='tr_TR' separator=','>
+              <column datatype='string' name='id' ordinal='0' />
+              <column datatype='string' name='state' ordinal='1' />
+              <column datatype='date' name='stop_date' ordinal='2' />
+              <column datatype='datetime' name='stop_time' ordinal='3' />
+              <column datatype='string' name='location_raw' ordinal='4' />
+              <column datatype='string' name='county_name' ordinal='5' />
+              <column datatype='string' name='county_fips' ordinal='6' />
+              <column datatype='string' name='fine_grained_location' ordinal='7' />
+              <column datatype='integer' name='police_department' ordinal='8' />
+              <column datatype='string' name='driver_gender' ordinal='9' />
+              <column datatype='string' name='driver_age_raw' ordinal='10' />
+              <column datatype='string' name='driver_age' ordinal='11' />
+              <column datatype='string' name='driver_race_raw' ordinal='12' />
+              <column datatype='string' name='driver_race' ordinal='13' />
+              <column datatype='string' name='violation_raw' ordinal='14' />
+              <column datatype='string' name='violation' ordinal='15' />
+              <column datatype='boolean' name='search_conducted' ordinal='16' />
+              <column datatype='string' name='search_type_raw' ordinal='17' />
+              <column datatype='string' name='search_type' ordinal='18' />
+              <column datatype='boolean' name='contraband_found' ordinal='19' />
+              <column datatype='string' name='stop_outcome' ordinal='20' />
+              <column datatype='boolean' name='is_arrested' ordinal='21' />
+              <column datatype='string' name='stop_duration' ordinal='22' />
+              <column datatype='boolean' name='out_of_state' ordinal='23' />
+              <column datatype='boolean' name='drugs_related_stop' ordinal='24' />
+              <column datatype='string' name='district' ordinal='25' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[weather.csv].[DATE]' />
+              <expression op='[RI_cleaned.csv].[stop_date]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.1l993ul0d5krht11re92d1vm7vhl' name='weather.csv' table='[weather#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='tr_TR' separator=','>
+              <column datatype='string' name='STATION' ordinal='0' />
+              <column datatype='date' name='DATE' ordinal='1' />
+              <column datatype='string' name='AWND' ordinal='2' />
+              <column datatype='string' name='TAVG' ordinal='3' />
+              <column datatype='integer' name='TMAX' ordinal='4' />
+              <column datatype='integer' name='TMIN' ordinal='5' />
+              <column datatype='string' name='WT01' ordinal='6' />
+              <column datatype='string' name='WT02' ordinal='7' />
+              <column datatype='string' name='WT03' ordinal='8' />
+              <column datatype='string' name='WT04' ordinal='9' />
+              <column datatype='string' name='WT05' ordinal='10' />
+              <column datatype='string' name='WT06' ordinal='11' />
+              <column datatype='string' name='WT07' ordinal='12' />
+              <column datatype='string' name='WT08' ordinal='13' />
+              <column datatype='string' name='WT09' ordinal='14' />
+              <column datatype='string' name='WT10' ordinal='15' />
+              <column datatype='string' name='WT11' ordinal='16' />
+              <column datatype='string' name='WT13' ordinal='17' />
+              <column datatype='string' name='WT14' ordinal='18' />
+              <column datatype='string' name='WT15' ordinal='19' />
+              <column datatype='string' name='WT16' ordinal='20' />
+              <column datatype='string' name='WT17' ordinal='21' />
+              <column datatype='string' name='WT18' ordinal='22' />
+              <column datatype='string' name='WT19' ordinal='23' />
+              <column datatype='string' name='WT21' ordinal='24' />
+              <column datatype='string' name='WT22' ordinal='25' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1qy40121dz409l1484zp1148l5h9' name='RI_cleaned.csv' table='[RI_cleaned#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='tr_TR' separator=','>
+              <column datatype='string' name='id' ordinal='0' />
+              <column datatype='string' name='state' ordinal='1' />
+              <column datatype='date' name='stop_date' ordinal='2' />
+              <column datatype='datetime' name='stop_time' ordinal='3' />
+              <column datatype='string' name='location_raw' ordinal='4' />
+              <column datatype='string' name='county_name' ordinal='5' />
+              <column datatype='string' name='county_fips' ordinal='6' />
+              <column datatype='string' name='fine_grained_location' ordinal='7' />
+              <column datatype='integer' name='police_department' ordinal='8' />
+              <column datatype='string' name='driver_gender' ordinal='9' />
+              <column datatype='string' name='driver_age_raw' ordinal='10' />
+              <column datatype='string' name='driver_age' ordinal='11' />
+              <column datatype='string' name='driver_race_raw' ordinal='12' />
+              <column datatype='string' name='driver_race' ordinal='13' />
+              <column datatype='string' name='violation_raw' ordinal='14' />
+              <column datatype='string' name='violation' ordinal='15' />
+              <column datatype='boolean' name='search_conducted' ordinal='16' />
+              <column datatype='string' name='search_type_raw' ordinal='17' />
+              <column datatype='string' name='search_type' ordinal='18' />
+              <column datatype='boolean' name='contraband_found' ordinal='19' />
+              <column datatype='string' name='stop_outcome' ordinal='20' />
+              <column datatype='boolean' name='is_arrested' ordinal='21' />
+              <column datatype='string' name='stop_duration' ordinal='22' />
+              <column datatype='boolean' name='out_of_state' ordinal='23' />
+              <column datatype='boolean' name='drugs_related_stop' ordinal='24' />
+              <column datatype='string' name='district' ordinal='25' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;tr&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;TL&quot;</attribute>
+              <attribute datatype='string' name='debit-close-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='debit-open-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;tr_TR&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot;.&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;tr&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;TL&quot;</attribute>
+              <attribute datatype='string' name='debit-close-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='debit-open-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;tr_TR&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot;.&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>STATION</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[STATION]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>STATION</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DATE</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[DATE]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>DATE</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AWND</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[AWND]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>AWND</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TAVG</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[TAVG]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>TAVG</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TMAX</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[TMAX]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>TMAX</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TMIN</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[TMIN]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>TMIN</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT01</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT01]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT01</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT02</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT02]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT02</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT03</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT03]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT03</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT04</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT04]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT04</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT05</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT05]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT05</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT06</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT06]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT06</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT07</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT07]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT07</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT08</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT08]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT08</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT09</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT09]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT09</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT10</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT10]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT10</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT11</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT11]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT11</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT13</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT13]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT13</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT14</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT14]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT14</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT15</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT15]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT15</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT16</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT16]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT16</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT17</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT17]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT17</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT18</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT18]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT18</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT19</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT19]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT19</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT21</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT21]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT21</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WT22</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[WT22]</local-name>
+            <parent-name>[weather.csv]</parent-name>
+            <remote-alias>WT22</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[state]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>state</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stop_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[stop_date]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>stop_date</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stop_time</remote-name>
+            <remote-type>134</remote-type>
+            <local-name>[stop_time]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>stop_time</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Hour</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location_raw</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[location_raw]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>location_raw</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>county_name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[county_name]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>county_name</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>county_fips</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[county_fips]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>county_fips</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>fine_grained_location</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[fine_grained_location]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>fine_grained_location</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>police_department</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[police_department]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>police_department</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>driver_gender</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[driver_gender]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>driver_gender</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>driver_age_raw</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[driver_age_raw]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>driver_age_raw</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>driver_age</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[driver_age]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>driver_age</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>driver_race_raw</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[driver_race_raw]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>driver_race_raw</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>driver_race</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[driver_race]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>driver_race</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>violation_raw</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[violation_raw]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>violation_raw</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>violation</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[violation]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>violation</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>search_conducted</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[search_conducted]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>search_conducted</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>search_type_raw</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[search_type_raw]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>search_type_raw</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>search_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[search_type]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>search_type</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>contraband_found</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[contraband_found]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>contraband_found</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stop_outcome</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[stop_outcome]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>stop_outcome</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>is_arrested</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[is_arrested]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>is_arrested</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stop_duration</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[stop_duration]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>stop_duration</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>out_of_state</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[out_of_state]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>out_of_state</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>drugs_related_stop</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[drugs_related_stop]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>drugs_related_stop</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>district</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[district]</local-name>
+            <parent-name>[RI_cleaned.csv]</parent-name>
+            <remote-alias>district</remote-alias>
+            <ordinal>51</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTR_RTR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[weather.csv_9861D39D4C23411AAF48B0476C192E19]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <_.fcp.ObjectModelTableType.true...column caption='weather.csv' datatype='table' name='[__tableau_internal_object_id__].[weather.csv_9861D39D4C23411AAF48B0476C192E19]' role='measure' type='quantitative' />
+      <column datatype='string' name='[county_fips]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column datatype='string' name='[county_name]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column aggregation='Hour' datatype='datetime' name='[stop_time]' role='dimension' type='ordinal' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Turkey&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='weather.csv' id='weather.csv_9861D39D4C23411AAF48B0476C192E19'>
+            <properties context=''>
+              <relation join='inner' type='join'>
+                <clause type='join'>
+                  <expression op='='>
+                    <expression op='[weather.csv].[DATE]' />
+                    <expression op='[RI_cleaned.csv].[stop_date]' />
+                  </expression>
+                </clause>
+                <relation connection='textscan.1l993ul0d5krht11re92d1vm7vhl' name='weather.csv' table='[weather#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='tr_TR' separator=','>
+                    <column datatype='string' name='STATION' ordinal='0' />
+                    <column datatype='date' name='DATE' ordinal='1' />
+                    <column datatype='string' name='AWND' ordinal='2' />
+                    <column datatype='string' name='TAVG' ordinal='3' />
+                    <column datatype='integer' name='TMAX' ordinal='4' />
+                    <column datatype='integer' name='TMIN' ordinal='5' />
+                    <column datatype='string' name='WT01' ordinal='6' />
+                    <column datatype='string' name='WT02' ordinal='7' />
+                    <column datatype='string' name='WT03' ordinal='8' />
+                    <column datatype='string' name='WT04' ordinal='9' />
+                    <column datatype='string' name='WT05' ordinal='10' />
+                    <column datatype='string' name='WT06' ordinal='11' />
+                    <column datatype='string' name='WT07' ordinal='12' />
+                    <column datatype='string' name='WT08' ordinal='13' />
+                    <column datatype='string' name='WT09' ordinal='14' />
+                    <column datatype='string' name='WT10' ordinal='15' />
+                    <column datatype='string' name='WT11' ordinal='16' />
+                    <column datatype='string' name='WT13' ordinal='17' />
+                    <column datatype='string' name='WT14' ordinal='18' />
+                    <column datatype='string' name='WT15' ordinal='19' />
+                    <column datatype='string' name='WT16' ordinal='20' />
+                    <column datatype='string' name='WT17' ordinal='21' />
+                    <column datatype='string' name='WT18' ordinal='22' />
+                    <column datatype='string' name='WT19' ordinal='23' />
+                    <column datatype='string' name='WT21' ordinal='24' />
+                    <column datatype='string' name='WT22' ordinal='25' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.1qy40121dz409l1484zp1148l5h9' name='RI_cleaned.csv' table='[RI_cleaned#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='tr_TR' separator=','>
+                    <column datatype='string' name='id' ordinal='0' />
+                    <column datatype='string' name='state' ordinal='1' />
+                    <column datatype='date' name='stop_date' ordinal='2' />
+                    <column datatype='datetime' name='stop_time' ordinal='3' />
+                    <column datatype='string' name='location_raw' ordinal='4' />
+                    <column datatype='string' name='county_name' ordinal='5' />
+                    <column datatype='string' name='county_fips' ordinal='6' />
+                    <column datatype='string' name='fine_grained_location' ordinal='7' />
+                    <column datatype='integer' name='police_department' ordinal='8' />
+                    <column datatype='string' name='driver_gender' ordinal='9' />
+                    <column datatype='string' name='driver_age_raw' ordinal='10' />
+                    <column datatype='string' name='driver_age' ordinal='11' />
+                    <column datatype='string' name='driver_race_raw' ordinal='12' />
+                    <column datatype='string' name='driver_race' ordinal='13' />
+                    <column datatype='string' name='violation_raw' ordinal='14' />
+                    <column datatype='string' name='violation' ordinal='15' />
+                    <column datatype='boolean' name='search_conducted' ordinal='16' />
+                    <column datatype='string' name='search_type_raw' ordinal='17' />
+                    <column datatype='string' name='search_type' ordinal='18' />
+                    <column datatype='boolean' name='contraband_found' ordinal='19' />
+                    <column datatype='string' name='stop_outcome' ordinal='20' />
+                    <column datatype='boolean' name='is_arrested' ordinal='21' />
+                    <column datatype='string' name='stop_duration' ordinal='22' />
+                    <column datatype='boolean' name='out_of_state' ordinal='23' />
+                    <column datatype='boolean' name='drugs_related_stop' ordinal='24' />
+                    <column datatype='string' name='district' ordinal='25' />
+                  </columns>
+                </relation>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{0A5CC602-0CA3-42CB-A3C2-001BFA5F9D42}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{40AA7BB2-719A-4271-BF35-8631EDB86D12}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>

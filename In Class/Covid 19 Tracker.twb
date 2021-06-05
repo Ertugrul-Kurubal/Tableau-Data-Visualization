@@ -16,6 +16,23 @@
     <preference name='ui.shelf.height' value='26' />
   </preferences>
   <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='New or Cumulative' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;New&quot;'>
+        <calculation class='tableau' formula='&quot;New&quot;' />
+        <members>
+          <member value='&quot;New&quot;' />
+          <member value='&quot;Cumulative&quot;' />
+        </members>
+      </column>
+      <column caption='Positive Cases or Deaths' datatype='string' name='[Parameter 2]' param-domain-type='list' role='measure' type='nominal' value='&quot;Positive Cases&quot;'>
+        <calculation class='tableau' formula='&quot;Positive Cases&quot;' />
+        <members>
+          <member value='&quot;Positive Cases&quot;' />
+          <member value='&quot;Deaths&quot;' />
+        </members>
+      </column>
+    </datasource>
     <datasource caption='covid-19-data-resource-hub/covid-19-case-counts' inline='true' name='federated.0so3dzt1mtxjfw11brvry01bln6y' version='18.1'>
       <connection class='federated'>
         <named-connections>
@@ -238,7 +255,70 @@
       </connection>
       <aliases enabled='yes' />
       <column caption='Measure Names' datatype='string' name='[:Measure Names]' role='dimension' type='nominal' />
+      <column caption='Max_Date' datatype='date' name='[Calculation_1596526118227017728]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='{MAX([report_date])}' />
+      </column>
+      <column caption='Max_Date_US' datatype='date' name='[Calculation_1596526118228787202]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='{&#13;&#10;MAX(IF [country_short_name] = &apos;United States&apos; THEN [report_date] END)&#13;&#10;}' />
+      </column>
+      <column caption='Date is Less Than or Equal to US Date' datatype='boolean' name='[Calculation_1596526118229692419]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[report_date] &lt;= [Calculation_1596526118228787202]' />
+      </column>
+      <column caption='Date is max' datatype='boolean' name='[Calculation_1596526118232072196]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[Calculation_1596526118227017728] = [report_date]' />
+      </column>
+      <column caption='Total or New Positive Case ' datatype='integer' name='[Calculation_1596526118232629253]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='if [Parameters].[Parameter 1] = &apos;New&apos; Then [people_positive_new_cases_count]&#13;&#10;else [people_positive_cases_count]&#13;&#10;END' />
+      </column>
+      <column caption='Curren day Cumulative or New Positive Cases' datatype='integer' name='[Calculation_1596526118233464838]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='if [Calculation_1596526118232072196] then [Calculation_1596526118232629253] END' />
+      </column>
+      <column caption='Previous Day Cumulative or New Cases' datatype='integer' name='[Calculation_1596526118233964551]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='if DATEDIFF(&apos;day&apos;, [report_date], [Calculation_1596526118227017728]) = 1 Then [Calculation_1596526118232629253] END' />
+      </column>
+      <column caption='Difference in Cumulative or New to Previous Day Positive Cases ' datatype='integer' name='[Calculation_1596526118239223816]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([Calculation_1596526118233464838])-SUM([Calculation_1596526118233964551])' />
+      </column>
+      <column caption='Difference in Cumulative or New to Previous Day Positive Cases %' datatype='real' name='[Calculation_1596526118240673802]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([Calculation_1596526118233464838])/SUM([Calculation_1596526118233964551])' />
+      </column>
+      <column caption='Difference in Cumulative or New Positive Cases Same' datatype='string' name='[Calculation_1596526118241255435]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='IF [Calculation_1596526118239223816] = 0 THEN &quot;●&quot; END' />
+      </column>
+      <column caption='Curren day Cumulative or New Deaths' datatype='integer' name='[Curren day Cumulative or New Positive Cases (copy)_1596526118246547471]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='if [Calculation_1596526118232072196] then [Total or New Positive Case  (copy)_1596526118246035470] END' />
+      </column>
+      <column caption='Difference in Cumulative or New Deaths Down ' datatype='string' name='[Difference in Cumulative or New Positive Cases Down (copy)_1596526118247653395]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='IF [Difference in Cumulative or New to Previous Day Positive Cases  (copy)_1596526118247145489] &lt; 0 THEN &apos;▼&apos; END' />
+      </column>
+      <column caption='Difference in Cumulative or New Positive Cases Up' datatype='string' name='[Difference in Cumulative or New Positive Cases Same (copy)_1596526118241644556]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='IF [Calculation_1596526118239223816] &gt; 0 THEN &apos;▲&apos; END' />
+      </column>
+      <column caption='Difference in Cumulative or New Deaths Same' datatype='string' name='[Difference in Cumulative or New Positive Cases Same (copy)_1596526118247821332]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='IF [Difference in Cumulative or New to Previous Day Positive Cases  (copy)_1596526118247145489] = 0 THEN &quot;●&quot; END' />
+      </column>
+      <column caption='Difference in Cumulative or New Positive Cases Down' datatype='string' name='[Difference in Cumulative or New Positive Cases Top (copy)_1596526118242377741]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='IF [Calculation_1596526118239223816] &lt; 0 THEN &apos;▼&apos; END' />
+      </column>
+      <column caption='Difference in Cumulative or New Deaths Up' datatype='string' name='[Difference in Cumulative or New Positive Cases Up (copy)_1596526118248042517]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='IF [Difference in Cumulative or New to Previous Day Positive Cases  (copy)_1596526118247145489] &gt; 0 THEN &apos;▲&apos; END' />
+      </column>
+      <column caption='Difference in Cumulative or New to Previous Day Deaths' datatype='integer' name='[Difference in Cumulative or New to Previous Day Positive Cases  (copy)_1596526118247145489]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([Curren day Cumulative or New Positive Cases (copy)_1596526118246547471])-SUM([Previous Day Cumulative or New Cases (copy)_1596526118246739984])' />
+      </column>
+      <column caption='Difference in Cumulative or New to Previous Day Deaths %' datatype='real' name='[Difference in Cumulative or New to Previous Day Positive Cases % (copy)_1596526118247338002]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([Curren day Cumulative or New Positive Cases (copy)_1596526118246547471])/SUM([Previous Day Cumulative or New Cases (copy)_1596526118246739984])' />
+      </column>
+      <column caption='Min_Date' datatype='date' name='[Max_Date (copy)_1596526118227488769]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='{MIN([report_date])}' />
+      </column>
       <column caption='Measure Values' datatype='real' name='[Multiple Values]' role='measure' type='quantitative' />
+      <column caption='Previous Day Cumulative or New Deaths' datatype='integer' name='[Previous Day Cumulative or New Cases (copy)_1596526118246739984]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='if DATEDIFF(&apos;day&apos;, [report_date], [Calculation_1596526118227017728]) = 1 Then [Total or New Positive Case  (copy)_1596526118246035470] END' />
+      </column>
+      <column caption='Total or New Deaths' datatype='integer' name='[Total or New Positive Case  (copy)_1596526118246035470]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='if [Parameters].[Parameter 1] = &apos;New&apos; Then [people_death_new_count]&#13;&#10;else [people_death_count]&#13;&#10;END' />
+      </column>
       <_.fcp.ObjectModelTableType.true...column caption='Query Results' datatype='table' name='[__tableau_internal_object_id__].[QueryTable_099A4D2CC9FF4035A503850658B44F15]' role='measure' type='quantitative' />
       <column datatype='string' name='[country_alpha_2_code]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
       <column datatype='string' name='[country_alpha_3_code]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
@@ -451,6 +531,11 @@
         <semantic-value key='[Country].[Name]' value='&quot;Turkey&quot;' />
       </semantic-values>
       <date-options start-of-week='monday' />
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='New or Cumulative' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;New&quot;'>
+          <calculation class='tableau' formula='&quot;New&quot;' />
+        </column>
+      </datasource-dependencies>
       <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
         <objects>
           <object caption='Query Results' id='QueryTable_099A4D2CC9FF4035A503850658B44F15'>
@@ -465,11 +550,87 @@
       </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
     </datasource>
   </datasources>
+  <shared-views>
+    <shared-view name='federated.0so3dzt1mtxjfw11brvry01bln6y'>
+      <datasources>
+        <datasource caption='covid-19-data-resource-hub/covid-19-case-counts' name='federated.0so3dzt1mtxjfw11brvry01bln6y' />
+      </datasources>
+      <datasource-dependencies datasource='federated.0so3dzt1mtxjfw11brvry01bln6y'>
+        <column caption='Date is Less Than or Equal to US Date' datatype='boolean' name='[Calculation_1596526118229692419]' role='dimension' type='nominal'>
+          <calculation class='tableau' formula='[report_date] &lt;= [Calculation_1596526118228787202]' />
+        </column>
+        <column-instance column='[Calculation_1596526118229692419]' derivation='None' name='[none:Calculation_1596526118229692419:nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
+      <filter class='categorical' column='[federated.0so3dzt1mtxjfw11brvry01bln6y].[none:Calculation_1596526118229692419:nk]' context='true'>
+        <groupfilter function='member' level='[none:Calculation_1596526118229692419:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+      </filter>
+    </shared-view>
+  </shared-views>
   <worksheets>
-    <worksheet name='Sheet 1'>
+    <worksheet name='Global Deaths BAN'>
       <table>
         <view>
-          <datasources />
+          <datasources>
+            <datasource caption='covid-19-data-resource-hub/covid-19-case-counts' name='federated.0so3dzt1mtxjfw11brvry01bln6y' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='New or Cumulative' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;New&quot;'>
+              <calculation class='tableau' formula='&quot;New&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0so3dzt1mtxjfw11brvry01bln6y'>
+            <column caption='Max_Date' datatype='date' name='[Calculation_1596526118227017728]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='{MAX([report_date])}' />
+            </column>
+            <column caption='Max_Date_US' datatype='date' name='[Calculation_1596526118228787202]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='{&#13;&#10;MAX(IF [country_short_name] = &apos;United States&apos; THEN [report_date] END)&#13;&#10;}' />
+            </column>
+            <column caption='Date is Less Than or Equal to US Date' datatype='boolean' name='[Calculation_1596526118229692419]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[report_date] &lt;= [Calculation_1596526118228787202]' />
+            </column>
+            <column caption='Date is max' datatype='boolean' name='[Calculation_1596526118232072196]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[Calculation_1596526118227017728] = [report_date]' />
+            </column>
+            <column caption='Curren day Cumulative or New Deaths' datatype='integer' name='[Curren day Cumulative or New Positive Cases (copy)_1596526118246547471]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='if [Calculation_1596526118232072196] then [Total or New Positive Case  (copy)_1596526118246035470] END' />
+            </column>
+            <column caption='Difference in Cumulative or New Deaths Down ' datatype='string' name='[Difference in Cumulative or New Positive Cases Down (copy)_1596526118247653395]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='IF [Difference in Cumulative or New to Previous Day Positive Cases  (copy)_1596526118247145489] &lt; 0 THEN &apos;▼&apos; END' />
+            </column>
+            <column caption='Difference in Cumulative or New Deaths Same' datatype='string' name='[Difference in Cumulative or New Positive Cases Same (copy)_1596526118247821332]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='IF [Difference in Cumulative or New to Previous Day Positive Cases  (copy)_1596526118247145489] = 0 THEN &quot;●&quot; END' />
+            </column>
+            <column caption='Difference in Cumulative or New Deaths Up' datatype='string' name='[Difference in Cumulative or New Positive Cases Up (copy)_1596526118248042517]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='IF [Difference in Cumulative or New to Previous Day Positive Cases  (copy)_1596526118247145489] &gt; 0 THEN &apos;▲&apos; END' />
+            </column>
+            <column caption='Difference in Cumulative or New to Previous Day Deaths' datatype='integer' name='[Difference in Cumulative or New to Previous Day Positive Cases  (copy)_1596526118247145489]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([Curren day Cumulative or New Positive Cases (copy)_1596526118246547471])-SUM([Previous Day Cumulative or New Cases (copy)_1596526118246739984])' />
+            </column>
+            <column caption='Difference in Cumulative or New to Previous Day Deaths %' datatype='real' name='[Difference in Cumulative or New to Previous Day Positive Cases % (copy)_1596526118247338002]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([Curren day Cumulative or New Positive Cases (copy)_1596526118246547471])/SUM([Previous Day Cumulative or New Cases (copy)_1596526118246739984])' />
+            </column>
+            <column caption='Previous Day Cumulative or New Deaths' datatype='integer' name='[Previous Day Cumulative or New Cases (copy)_1596526118246739984]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='if DATEDIFF(&apos;day&apos;, [report_date], [Calculation_1596526118227017728]) = 1 Then [Total or New Positive Case  (copy)_1596526118246035470] END' />
+            </column>
+            <column caption='Total or New Deaths' datatype='integer' name='[Total or New Positive Case  (copy)_1596526118246035470]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='if [Parameters].[Parameter 1] = &apos;New&apos; Then [people_death_new_count]&#13;&#10;else [people_death_count]&#13;&#10;END' />
+            </column>
+            <column datatype='string' name='[country_short_name]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[Calculation_1596526118229692419]' derivation='None' name='[none:Calculation_1596526118229692419:nk]' pivot='key' type='nominal' />
+            <column datatype='integer' name='[people_death_count]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[people_death_new_count]' role='measure' type='quantitative' />
+            <column datatype='date' name='[report_date]' role='dimension' type='ordinal' />
+            <column-instance column='[Curren day Cumulative or New Positive Cases (copy)_1596526118246547471]' derivation='Sum' name='[sum:Curren day Cumulative or New Positive Cases (copy)_1596526118246547471:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Difference in Cumulative or New Positive Cases Down (copy)_1596526118247653395]' derivation='User' name='[usr:Difference in Cumulative or New Positive Cases Down (copy)_1596526118247653395:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Difference in Cumulative or New Positive Cases Same (copy)_1596526118247821332]' derivation='User' name='[usr:Difference in Cumulative or New Positive Cases Same (copy)_1596526118247821332:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Difference in Cumulative or New Positive Cases Up (copy)_1596526118248042517]' derivation='User' name='[usr:Difference in Cumulative or New Positive Cases Up (copy)_1596526118248042517:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Difference in Cumulative or New to Previous Day Positive Cases  (copy)_1596526118247145489]' derivation='User' name='[usr:Difference in Cumulative or New to Previous Day Positive Cases  (copy)_1596526118247145489:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Difference in Cumulative or New to Previous Day Positive Cases % (copy)_1596526118247338002]' derivation='User' name='[usr:Difference in Cumulative or New to Previous Day Positive Cases % (copy)_1596526118247338002:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.0so3dzt1mtxjfw11brvry01bln6y].[none:Calculation_1596526118229692419:nk]</column>
+          </slices>
           <aggregation value='true' />
         </view>
         <style />
@@ -479,6 +640,359 @@
               <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
+            <encodings>
+              <text column='[Parameters].[Parameter 1]' />
+              <text column='[federated.0so3dzt1mtxjfw11brvry01bln6y].[sum:Curren day Cumulative or New Positive Cases (copy)_1596526118246547471:qk]' />
+              <text column='[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New Positive Cases Down (copy)_1596526118247653395:nk]' />
+              <text column='[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New Positive Cases Same (copy)_1596526118247821332:nk]' />
+              <text column='[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New Positive Cases Up (copy)_1596526118248042517:nk]' />
+              <text column='[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New to Previous Day Positive Cases % (copy)_1596526118247338002:qk]' />
+              <text column='[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New to Previous Day Positive Cases  (copy)_1596526118247145489:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontsize='12'><![CDATA[<[Parameters].[Parameter 1]> Deaths]]></run>
+                <run>Æ&#10;</run>
+                <run fontsize='28'><![CDATA[<[federated.0so3dzt1mtxjfw11brvry01bln6y].[sum:Curren day Cumulative or New Positive Cases (copy)_1596526118246547471:qk]>]]></run>
+                <run fontalignment='0'>Æ&#10;</run>
+                <run fontalignment='0' fontcolor='#00aaff'><![CDATA[<[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New Positive Cases Same (copy)_1596526118247821332:nk]>]]></run>
+                <run fontalignment='0' fontcolor='#e15759'><![CDATA[<[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New Positive Cases Up (copy)_1596526118248042517:nk]>]]></run>
+                <run fontalignment='0' fontcolor='#59a14f'><![CDATA[<[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New Positive Cases Down (copy)_1596526118247653395:nk]>]]></run>
+                <run fontalignment='0'><![CDATA[<[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New to Previous Day Positive Cases % (copy)_1596526118247338002:qk]> vs previous day <[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New to Previous Day Positive Cases  (copy)_1596526118247145489:qk]>]]></run>
+                <run>Æ&#10;&#10;&#10;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{D14DD7CA-33CE-4324-9684-5AD1DD0E379E}' />
+    </worksheet>
+    <worksheet name='Global Deaths Over Time'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='covid-19-data-resource-hub/covid-19-case-counts' name='federated.0so3dzt1mtxjfw11brvry01bln6y' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='New or Cumulative' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;New&quot;'>
+              <calculation class='tableau' formula='&quot;New&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0so3dzt1mtxjfw11brvry01bln6y'>
+            <column caption='Max_Date_US' datatype='date' name='[Calculation_1596526118228787202]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='{&#13;&#10;MAX(IF [country_short_name] = &apos;United States&apos; THEN [report_date] END)&#13;&#10;}' />
+            </column>
+            <column caption='Date is Less Than or Equal to US Date' datatype='boolean' name='[Calculation_1596526118229692419]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[report_date] &lt;= [Calculation_1596526118228787202]' />
+            </column>
+            <column caption='Total or New Deaths' datatype='integer' name='[Total or New Positive Case  (copy)_1596526118246035470]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='if [Parameters].[Parameter 1] = &apos;New&apos; Then [people_death_new_count]&#13;&#10;else [people_death_count]&#13;&#10;END' />
+            </column>
+            <column datatype='string' name='[country_short_name]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[Calculation_1596526118229692419]' derivation='None' name='[none:Calculation_1596526118229692419:nk]' pivot='key' type='nominal' />
+            <column datatype='integer' name='[people_death_count]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[people_death_new_count]' role='measure' type='quantitative' />
+            <column datatype='date' name='[report_date]' role='dimension' type='ordinal' />
+            <column-instance column='[Total or New Positive Case  (copy)_1596526118246035470]' derivation='Sum' name='[sum:Total or New Positive Case  (copy)_1596526118246035470:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[report_date]' derivation='Day-Trunc' name='[tdy:report_date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.0so3dzt1mtxjfw11brvry01bln6y].[none:Calculation_1596526118229692419:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.0so3dzt1mtxjfw11brvry01bln6y].[tdy:report_date:qk]' scope='cols' value='' />
+            <format attr='title' class='0' field='[federated.0so3dzt1mtxjfw11brvry01bln6y].[sum:Total or New Positive Case  (copy)_1596526118246035470:qk]' scope='rows' value='' />
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+            <format attr='tick-color' value='#00000000' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#00aaff' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0so3dzt1mtxjfw11brvry01bln6y].[sum:Total or New Positive Case  (copy)_1596526118246035470:qk]</rows>
+        <cols>[federated.0so3dzt1mtxjfw11brvry01bln6y].[tdy:report_date:qk]</cols>
+      </table>
+      <simple-id uuid='{4C1BA3E1-45C1-4B8A-A8A5-40633BD999A5}' />
+    </worksheet>
+    <worksheet name='Global Positive BAN'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='covid-19-data-resource-hub/covid-19-case-counts' name='federated.0so3dzt1mtxjfw11brvry01bln6y' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='New or Cumulative' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;New&quot;'>
+              <calculation class='tableau' formula='&quot;New&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0so3dzt1mtxjfw11brvry01bln6y'>
+            <column caption='Max_Date' datatype='date' name='[Calculation_1596526118227017728]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='{MAX([report_date])}' />
+            </column>
+            <column caption='Max_Date_US' datatype='date' name='[Calculation_1596526118228787202]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='{&#13;&#10;MAX(IF [country_short_name] = &apos;United States&apos; THEN [report_date] END)&#13;&#10;}' />
+            </column>
+            <column caption='Date is Less Than or Equal to US Date' datatype='boolean' name='[Calculation_1596526118229692419]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[report_date] &lt;= [Calculation_1596526118228787202]' />
+            </column>
+            <column caption='Date is max' datatype='boolean' name='[Calculation_1596526118232072196]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[Calculation_1596526118227017728] = [report_date]' />
+            </column>
+            <column caption='Total or New Positive Case ' datatype='integer' name='[Calculation_1596526118232629253]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='if [Parameters].[Parameter 1] = &apos;New&apos; Then [people_positive_new_cases_count]&#13;&#10;else [people_positive_cases_count]&#13;&#10;END' />
+            </column>
+            <column caption='Curren day Cumulative or New Positive Cases' datatype='integer' name='[Calculation_1596526118233464838]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='if [Calculation_1596526118232072196] then [Calculation_1596526118232629253] END' />
+            </column>
+            <column caption='Previous Day Cumulative or New Cases' datatype='integer' name='[Calculation_1596526118233964551]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='if DATEDIFF(&apos;day&apos;, [report_date], [Calculation_1596526118227017728]) = 1 Then [Calculation_1596526118232629253] END' />
+            </column>
+            <column caption='Difference in Cumulative or New to Previous Day Positive Cases ' datatype='integer' name='[Calculation_1596526118239223816]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([Calculation_1596526118233464838])-SUM([Calculation_1596526118233964551])' />
+            </column>
+            <column caption='Difference in Cumulative or New to Previous Day Positive Cases %' datatype='real' name='[Calculation_1596526118240673802]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([Calculation_1596526118233464838])/SUM([Calculation_1596526118233964551])' />
+            </column>
+            <column caption='Difference in Cumulative or New Positive Cases Same' datatype='string' name='[Calculation_1596526118241255435]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='IF [Calculation_1596526118239223816] = 0 THEN &quot;●&quot; END' />
+            </column>
+            <column caption='Difference in Cumulative or New Positive Cases Up' datatype='string' name='[Difference in Cumulative or New Positive Cases Same (copy)_1596526118241644556]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='IF [Calculation_1596526118239223816] &gt; 0 THEN &apos;▲&apos; END' />
+            </column>
+            <column caption='Difference in Cumulative or New Positive Cases Down' datatype='string' name='[Difference in Cumulative or New Positive Cases Top (copy)_1596526118242377741]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='IF [Calculation_1596526118239223816] &lt; 0 THEN &apos;▼&apos; END' />
+            </column>
+            <column datatype='string' name='[country_short_name]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[Calculation_1596526118229692419]' derivation='None' name='[none:Calculation_1596526118229692419:nk]' pivot='key' type='nominal' />
+            <column datatype='integer' name='[people_positive_cases_count]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[people_positive_new_cases_count]' role='measure' type='quantitative' />
+            <column datatype='date' name='[report_date]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_1596526118233464838]' derivation='Sum' name='[sum:Calculation_1596526118233464838:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1596526118233964551]' derivation='Sum' name='[sum:Calculation_1596526118233964551:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1596526118240673802]' derivation='User' name='[usr:Calculation_1596526118240673802:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1596526118241255435]' derivation='User' name='[usr:Calculation_1596526118241255435:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Difference in Cumulative or New Positive Cases Same (copy)_1596526118241644556]' derivation='User' name='[usr:Difference in Cumulative or New Positive Cases Same (copy)_1596526118241644556:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Difference in Cumulative or New Positive Cases Top (copy)_1596526118242377741]' derivation='User' name='[usr:Difference in Cumulative or New Positive Cases Top (copy)_1596526118242377741:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.0so3dzt1mtxjfw11brvry01bln6y].[none:Calculation_1596526118229692419:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[Parameters].[Parameter 1]' />
+              <text column='[federated.0so3dzt1mtxjfw11brvry01bln6y].[sum:Calculation_1596526118233464838:qk]' />
+              <text column='[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New Positive Cases Top (copy)_1596526118242377741:nk]' />
+              <text column='[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Calculation_1596526118241255435:nk]' />
+              <text column='[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New Positive Cases Same (copy)_1596526118241644556:nk]' />
+              <text column='[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Calculation_1596526118240673802:qk]' />
+              <text column='[federated.0so3dzt1mtxjfw11brvry01bln6y].[sum:Calculation_1596526118233964551:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontsize='12'><![CDATA[<[Parameters].[Parameter 1]>  Positive Cases]]></run>
+                <run>Æ&#10;</run>
+                <run fontsize='28'><![CDATA[<[federated.0so3dzt1mtxjfw11brvry01bln6y].[sum:Calculation_1596526118233464838:qk]>]]></run>
+                <run fontalignment='0'>Æ&#10;</run>
+                <run fontalignment='0' fontcolor='#00aaff'><![CDATA[<[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Calculation_1596526118241255435:nk]>]]></run>
+                <run fontalignment='0' fontcolor='#e15759'><![CDATA[<[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New Positive Cases Same (copy)_1596526118241644556:nk]>]]></run>
+                <run fontalignment='0' fontcolor='#59a14f'><![CDATA[<[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New Positive Cases Top (copy)_1596526118242377741:nk]>]]></run>
+                <run fontalignment='0'><![CDATA[<[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Calculation_1596526118240673802:qk]> vs previous day <[federated.0so3dzt1mtxjfw11brvry01bln6y].[sum:Calculation_1596526118233964551:qk]>
+
+
+]]></run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{E1037CCB-9AE9-447B-A00E-A9D881EAC416}' />
+    </worksheet>
+    <worksheet name='Global Positive Overtime'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='covid-19-data-resource-hub/covid-19-case-counts' name='federated.0so3dzt1mtxjfw11brvry01bln6y' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='New or Cumulative' datatype='string' name='[Parameter 1]' param-domain-type='list' role='measure' type='nominal' value='&quot;New&quot;'>
+              <calculation class='tableau' formula='&quot;New&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0so3dzt1mtxjfw11brvry01bln6y'>
+            <column caption='Max_Date_US' datatype='date' name='[Calculation_1596526118228787202]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='{&#13;&#10;MAX(IF [country_short_name] = &apos;United States&apos; THEN [report_date] END)&#13;&#10;}' />
+            </column>
+            <column caption='Date is Less Than or Equal to US Date' datatype='boolean' name='[Calculation_1596526118229692419]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[report_date] &lt;= [Calculation_1596526118228787202]' />
+            </column>
+            <column caption='Total or New Positive Case ' datatype='integer' name='[Calculation_1596526118232629253]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='if [Parameters].[Parameter 1] = &apos;New&apos; Then [people_positive_new_cases_count]&#13;&#10;else [people_positive_cases_count]&#13;&#10;END' />
+            </column>
+            <column datatype='string' name='[country_short_name]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[Calculation_1596526118229692419]' derivation='None' name='[none:Calculation_1596526118229692419:nk]' pivot='key' type='nominal' />
+            <column datatype='integer' name='[people_positive_cases_count]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[people_positive_new_cases_count]' role='measure' type='quantitative' />
+            <column datatype='date' name='[report_date]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_1596526118232629253]' derivation='Sum' name='[sum:Calculation_1596526118232629253:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[report_date]' derivation='Day-Trunc' name='[tdy:report_date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.0so3dzt1mtxjfw11brvry01bln6y].[none:Calculation_1596526118229692419:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.0so3dzt1mtxjfw11brvry01bln6y].[tdy:report_date:qk]' scope='cols' value='' />
+            <format attr='title' class='0' field='[federated.0so3dzt1mtxjfw11brvry01bln6y].[sum:Calculation_1596526118232629253:qk]' scope='rows' value='' />
+            <format attr='tick-color' value='#00000000' />
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='stroke-size' scope='rows' value='1' />
+            <format attr='line-visibility' scope='rows' value='on' />
+            <format attr='line-pattern-only' scope='rows' value='solid' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#00aaff' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0so3dzt1mtxjfw11brvry01bln6y].[sum:Calculation_1596526118232629253:qk]</rows>
+        <cols>[federated.0so3dzt1mtxjfw11brvry01bln6y].[tdy:report_date:qk]</cols>
+      </table>
+      <simple-id uuid='{09EE3155-3577-4EF7-9FCF-CBC3D7A7C405}' />
+    </worksheet>
+    <worksheet name='Global Title'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='covid-19-data-resource-hub/covid-19-case-counts' name='federated.0so3dzt1mtxjfw11brvry01bln6y' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0so3dzt1mtxjfw11brvry01bln6y'>
+            <column caption='Max_Date' datatype='date' name='[Calculation_1596526118227017728]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='{MAX([report_date])}' />
+            </column>
+            <column caption='Max_Date_US' datatype='date' name='[Calculation_1596526118228787202]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='{&#13;&#10;MAX(IF [country_short_name] = &apos;United States&apos; THEN [report_date] END)&#13;&#10;}' />
+            </column>
+            <column caption='Date is Less Than or Equal to US Date' datatype='boolean' name='[Calculation_1596526118229692419]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[report_date] &lt;= [Calculation_1596526118228787202]' />
+            </column>
+            <column caption='Min_Date' datatype='date' name='[Max_Date (copy)_1596526118227488769]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='{MIN([report_date])}' />
+            </column>
+            <column datatype='string' name='[country_short_name]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[Calculation_1596526118227017728]' derivation='None' name='[none:Calculation_1596526118227017728:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1596526118229692419]' derivation='None' name='[none:Calculation_1596526118229692419:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Max_Date (copy)_1596526118227488769]' derivation='None' name='[none:Max_Date (copy)_1596526118227488769:qk]' pivot='key' type='quantitative' />
+            <column datatype='date' name='[report_date]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.0so3dzt1mtxjfw11brvry01bln6y].[none:Calculation_1596526118229692419:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0so3dzt1mtxjfw11brvry01bln6y].[none:Calculation_1596526118227017728:qk]' value='*dd mmmm yyyy' />
+            <format attr='text-format' field='[federated.0so3dzt1mtxjfw11brvry01bln6y].[none:Max_Date (copy)_1596526118227488769:qk]' value='*mmmm yyyy' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#003195' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0so3dzt1mtxjfw11brvry01bln6y].[none:Calculation_1596526118227017728:qk]' />
+              <text column='[federated.0so3dzt1mtxjfw11brvry01bln6y].[none:Max_Date (copy)_1596526118227488769:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontalignment='0' fontcolor='#ffffff' fontsize='36'>Global COVID-19 Tracker</run>
+                <run fontalignment='0'>Æ&#10;</run>
+                <run fontalignment='0' fontcolor='#ffffff' fontsize='12'><![CDATA[<[federated.0so3dzt1mtxjfw11brvry01bln6y].[none:Max_Date (copy)_1596526118227488769:qk]> <[federated.0so3dzt1mtxjfw11brvry01bln6y].[none:Calculation_1596526118227017728:qk]>]]></run>
+                <run>Æ&#10;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
           </pane>
         </panes>
         <rows />
@@ -488,7 +1002,7 @@
     </worksheet>
   </worksheets>
   <windows source-height='30'>
-    <window class='worksheet' maximized='true' name='Sheet 1'>
+    <window class='worksheet' name='Global Title'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -509,23 +1023,540 @@
           </strip>
         </edge>
       </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.0so3dzt1mtxjfw11brvry01bln6y].[yr:Calculation_1596526118227017728:ok]</field>
+            <field>[federated.0so3dzt1mtxjfw11brvry01bln6y].[yr:Max_Date (copy)_1596526118227488769:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
       <simple-id uuid='{6BA8DE95-7CB0-46F8-AF37-AD82473F2391}' />
+    </window>
+    <window class='worksheet' name='Global Positive BAN'>
+      <cards>
+        <edge name='left'>
+          <strip size='300'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[Parameters].[Parameter 1]</field>
+            <field>[federated.0so3dzt1mtxjfw11brvry01bln6y].[none:Calculation_1596526118229692419:nk]</field>
+            <field>[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Calculation_1596526118241255435:nk]</field>
+            <field>[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New Positive Cases Same (copy)_1596526118241644556:nk]</field>
+            <field>[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New Positive Cases Top (copy)_1596526118242377741:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{FA32D14F-0046-4EE5-A4B9-8D089218F09D}' />
+    </window>
+    <window class='worksheet' name='Global Positive Overtime'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0so3dzt1mtxjfw11brvry01bln6y].[tdy:report_date:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{FCD52428-AEEF-4D81-A094-919E2870CD78}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Global Deaths BAN'>
+      <cards>
+        <edge name='left'>
+          <strip size='195'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[Parameters].[Parameter 1]</field>
+            <field>[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New Positive Cases Down (copy)_1596526118247653395:nk]</field>
+            <field>[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New Positive Cases Same (copy)_1596526118247821332:nk]</field>
+            <field>[federated.0so3dzt1mtxjfw11brvry01bln6y].[usr:Difference in Cumulative or New Positive Cases Up (copy)_1596526118248042517:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{32324C6E-354D-4C26-ABDF-63AFEF0E8D5B}' />
+    </window>
+    <window class='worksheet' name='Global Deaths Over Time'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='compact' param='[Parameters].[Parameter 1]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0so3dzt1mtxjfw11brvry01bln6y].[tdy:report_date:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{F567A0B3-7665-4957-9D15-76160E086FCF}' />
     </window>
   </windows>
   <thumbnails>
-    <thumbnail height='192' name='Sheet 1' width='192'>
+    <thumbnail height='192' name='Global Deaths BAN' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
-      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
-      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
-      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
-      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
-      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
-      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
-      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
-      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
-      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
-      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
-      fBUOM1sAAAAASUVORK5CYII=
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Global Deaths Over Time' width='192'>
+      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
+      /IL/B03sPWgvb+7gAAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Global Positive BAN' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Global Positive Overtime' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAUzklEQVR4nO2dy29b2X3HP5cvkdRblCxbsmfG8jySyQTtsii66KZdFOi66KLLtkD/ghbd
+      zLJdB0jbAEXatAgatGmC9AUEkxZBMm0yM3mMPfZYkmWJkklKIsX36/I+ThdHlEiKpChblCje
+      3wcQLJHU5aV8vuf8zu98z+8YSimFIHgU33XfgCBcJyIAwdOIAARPE2h+o6cCBtB9SmAYxhXd
+      kiBcHccCUKR3PsNdeg/z8BH1apiKUyU4MctsWHHn3n2C/uu9UUEYBichUCwWw7VqHGQK5LNZ
+      bt1exqyUKVZtAhIoCWOKodOgitSLXZxAlNXleUxTkc2miS0uEjBcbCPEhKhAGEMMWQcQvIx0
+      64KnEQEInkYEIHgaEYDgaUQAgqcRAQieRgQgeBoRgOBpTs1wrguGges6+Hx+XNfF5zvVh5jh
+      hHHkxAyXiT/GWXqPauIpNdPBAvzBaWbCsPKamOGE8eSki5+fn8dxbQKhKD7XJnZrkUatSrlu
+      45dASRhTTsxwB8kXOP4wqlFl4dYKhdwR8wsLBAwXxwgREjOcMIaIGU7wNNKtC55GBCB4GhGA
+      4GlEAIKnEQEInkYEIHgaEYDgaUQAgqc5EYDrOCilsC0L11VYloWrFMp1kbUyYVw5McNl9z7H
+      XvwSjcNtKpUaDcOH4YsyE4HV19cIihlUGENORoCZ2Rls28Z2DW4vxZhbmMeq16maDn5p/MI1
+      sVcd7vVP9gPk634CgQIEgxCZI1Kv8uX33sZvuNiOIhQQFQhXz3YF7kWHd/1jARjcurN6/NCi
+      /md26uRFshVAuC7qznCvL1kgYaSpOjDMHIwIQBhpag64Q7y+CEAYaeoOuDICCF7FdEUAgocx
+      JQQSvIyMAIKnMV1wRACCV2lc1Qjg2DauUti2jVIK0zRxXRflurhihhOuicaQR4ATM1wusY4d
+      e5ej+AYPVhfZTKZRKsxMBO6+sYZPnBDCNWA6VxQCTU1NYVkWU5NRzLrJ1Mw0dsOk1nCQsqDC
+      daAUWArs4Y8AULZDTPgrOEEfbmSeqUaN1ffuEDAUtqvwiyVUuGJcdPxvDTEPemKGW1y+c/zQ
+      /PG/p2a40PDeXxB64qhjAUgWSPAijtJf9hBHABGAMLI4SodBw5wDiACEkcVReiIsAhA8STP0
+      aUgIJHiRZv5/mFkgEYAwsjSzPzICCJ6kGQLJHEDwJM0R4ErSoLatK8GZZh3XVdTrdVzXxXUd
+      McMJ10LjCkaAEzNcIbFBY+EdcvFN/LhYgSCOE2ImbHDvvpjhhKunOfm9khEgGo1imnVCExFc
+      2yYajeJYDUzbQdq+cB009NntQ7VCnJjhakSZ8tkEFxeIrq1RzOe4d2cVv6FwlBTHEq6ehgsG
+      VxICGSwsLbc9EYvFTr6XmbJwHZwIQNKgghexzgmBDuqvvllGBCCMLOdNgn+Rh6r9au8hAhBG
+      lmbs32sEODIh13i19xABCCNLcx3A6TEC1Bw4NF/tPUQAwsjSDIF6jQBFSwQgjDHnWSFKNqRF
+      AMK4ct4IULIhIwIQxpWmALqlOm0XKjYcNV7tAI12AShFrVrBcRXVahXHcXAdW8xwwrVg9dkQ
+      U3X040Xr1TbMBFp/UMrkyWdPiEwEIBzBsvxMR3y8JmY44Ro4CYG6NPCKrTfMVx2oOBB6Sa9O
+      +whgTLAYm8KyHULhCVzHxuqVgxKEIdNcB+jmBSrZOvRxFWRfYS0g0PnA9NwSd+9/gWIhz+ur
+      0/hRQ63NKAi9aK4DuMcNvTUKyVvaJuFHWyIeTHW9RFdMR5ddnwl2jACGYbAQW8TvM5ifnycY
+      COALBAlKWUThGmiGPs0Sia0ULN14DePiqdBf5OFvt/UIIlkgYWRpToKbBbJaKR6PAHDxVOhH
+      WXhUgJ/nRADCCGN1hECtFK3T7y+yGlxz4HEB/AZ8a08EIIwIRyZ8ffvU3alaaoKeJ4C0Obgt
+      +he500n1fl0EIIwADRe+ugUfZuAvnkLJOi2MC93nAKUWG3TBGtwW/VH2dDJtGCIAYQT4rxTs
+      VHSDTNTgYeG40R8/rxQ4Hb9TaBkBHDXYRDjXgMfF058DIgBhmCgF30uc/7rnldNe2WfAXvXs
+      CNAa4tiuXvxqEjBgr3b++/z3YbttwicCEIZJogb/lz3/dXmr/eemAJphj1LtAqi77avDhqHX
+      AvphufCjDGeO+zqzECYIl4FS8J8pqJ0Tm7tKx/ytpOq6wbpKN1iF3hTjKPjK5uno0Lo8lTpH
+      AD890u/TaelpF4BSVCtlQpFJ6rUqkUgEA4Xy+fHLSXnCBchZ8ElON7jOVdxWGq5OTbZStHS8
+      ruCkJpWt9ES3GcN3rs0e1LXoejXTn2S730OHGc5l/ekTwqEwRCKYdZiO+HljbQ2pjiVchB8c
+      6Iav0I083MOsZjr6+dbG6Sgd0zeFYxxfo2if7fmbZBva3tDtfRwFW+Xu798xB3AAP7ZtEQj4
+      Ua6L47qIFUi4CDUHfpjWvbGrdCPvRck+m8P3G/C8pcEq9GvyfUxvNefsXKLJXlWLoxttI4Bh
+      BHnw5gPCkzPUqmXu35vEZ6ihHlUvjB8fZnSD9B3H7zUXZnu8tmCdDS4MQ2eGWrEUZBq9szb+
+      4xTq7fDZ57bKvX+vww5tMDM3TyjoZ3Z2lkAggM8fJCBmOGFAbBc+OGgPafotUmUb3UOavSon
+      kYeBnhQfmb1jfL8B8Ur3556Wev+epEGFS+Un2bPenM5JbisFq3vjrDmnI4NhaAHkeoQ4TT44
+      gFTHeoBSsFnq/TsiAOHSqDnwry/O9ujVPgIo9hgdZoIQOG6dzUnweUWwLAV/87x9jSBttq8a
+      dyICEC4FpbSlobOxGejti73oN7FtvYalBqsCt1eF7yVPf94o907BgghAuCQcpVdaOxubQbtt
+      oZPSACY2w9CZpH49eROfAd/fh2RNzy/+Za+/AGQlWLgUTFf35oGOLtUwoN5DAEr1Tl12UrR7
+      pzI7cYFv7GhRlu3eE2AQAQiXRLZxdtdWk14hkKMGtzEfmb0XwbqxUdajz3nVTEQAwqWQrEGw
+      R2PrHAHWS/q1y+Heo0MnGfPYyTmgAAYViswBhEvhsE+OvjML9NMj+P6BzhoNegh2qj54o74I
+      HV4gm62NLabmY1RLRZZu3yaIgy88RUgWw4Q+9HNjllvCnLqjd2XVHPjiDAPbbPbrMB96pVvs
+      SkdZlACrdxap57NMLc6x/mSTZ7v7UhZF6ItS/SsztC6EbZT0iGDQfc2gF69S/rAfHSGQIlc2
+      WVldIrmzx3Rskdj0BOYwTykTbjwuepLai9YQ6OOsbvSGofP6g5bcXJx4pVvsScck2GBlZQWA
+      X/2V+eG8o3Dj+VlWV2KbOw5JLLe3pQF02OMeb2J5WDh9fOIC9TyHVZtWJsHChfk4p2PyJgWr
+      /2HWttKT3bzVXs5kFBABCBfCPd5cctAS8qRqemN6v98xXe3WHLUq4yIA4UIc1LXB7LBlBDg0
+      +zdshQ6DdqoiAOGG82kBgr72OjyD1OSp2PCiOrz7ellEAMKFaLo3m55/pc4vSQI6EzRI7Z6r
+      RgQgDIyrtN0YdAiklJ7gdm5f7MZBfTDr81UjAhAGQin49xR8fry7qubosOagfr6l2QA2y2fr
+      e44CYoYTBuKXefhu4nTl1mfAvqlrevYywTUx0PX4O63So8AI3pIwinx41G5bMNC9/1a5v98e
+      TovejiIdZjjF9rN15mJLJBNJ5m+tEvXbTM4viRnOwygF+10a8H5dhzaDsDAEI9tl0HFOsEU2
+      WyC994LVt+6TisdJpPPS+D2Oo9pXfkH36uulwc/nGtUm1D4HMIIsLs4zEZ0i+WyH1ftvEPXb
+      1G2X8CgGcMKVkG1oK0Ond+eXOV294SZjKCXHwAv9+SgLX9s6G+v3K0Z7U5BuXTiXZK17Q7/p
+      jR9EAMIAdFZbGydEAEJflDr/8ImbjAhA6IvLYF6fm4oIQOhLwepf3PamIwIQ+rJb1fbncWWM
+      P5pwGRzWR28Ty2UiAhD6MmjtzpuKCEDoyyAlyW8yZ45J3Xj6mIWlZVKpfeaXVoj6baYWbokf
+      yIOoAWvy32TaRgB9ILFLLrXP3bfus7+7SzJdkMbvYc47luim07EhxmUiNEF0Zpbkszh31+6L
+      Gc7DKEZzG+NlImY4oSc1B/7ok96HXI8D0q0LPTk6p97POCACEHpyaJ6/3/emIwIQepJtjIfl
+      uR8iAKEn474IBiIAoQ/jvgYAIgChB15YBAMRgNCHcV8EAxGA0IXk8RbIcV8EAxGA0IHpwJ8/
+      gu8k2k93HFfO1AbN7MdpuGGOMofM3VphUsxwniJe1anP/0jBhAe6x3YznGOyvbdHYjPO3bfv
+      c7C7S0LMcJ5it6obhc8Y/zUA6FIZ7gtf+CLVskNqK869tftE/I6Y4TzE7gie4jJM2gRg+HxM
+      T8eYnoblO7eu656Ea+RF1Rs9fxPp1oUTlIIXY1wEqxsiAOGETEMfZ+olRADCCc/K4+/+7EQE
+      IJyQ8NgEGEQAwjFK6QPwvDQBBhGAcMwPDmF7gONOxw0RgMBBHf55b3SPMRomIgCBb8T1OWBe
+      RATgcR7l4fOi92L/JmeOSd3Z2iAYjpDL5pk7rgw3HVsWP9AY4ir4pz1v94Jtn90wDMITIQqH
+      Ge6+vcbB3h7JTFEa/5jyUVaf/uLV3h/OjAA2lWqD2Ooqqa04rz1YIyKV4caWH6a9OfFtRSrD
+      eZSDOvzZIxGAdOse5X8O5T8f5G/gSRwFH2a8Hfs3EQF4kETVG/t9B0EE4EF2qhL7NxEBeJC4
+      Bz0/vRABeJAXNYn/m4gAPIZSsOdB338vRAAeI9MY75PfL4oIwGNsl2UC3EpXM1xgIkwuV2Bu
+      cYXJgJjhxoldj1V9OI8zI8DU1DQ+s8G9t9c4fCFmuHEjXpEJcCtnjklNZzIsLt9hf2uX1958
+      QMQnZrhxwXbhuaRA2xAznIf4WQ6++mz8T368CNKte4gPMyBtvx0RgEeo2vBZQeL/TkQAHuGj
+      rN4CKbTjaQHs1/XK6LizV4XvJqT374anBfDDQxin9n9YP/vY8zL85VOxP/fC0wJI1KEwRich
+      fu25TnU2cRV8fQfqjvT+vfC0AExHHwgxDlRs2KrAo8LpYz/N6hMfpfH3xtMCKFjjcyDEQV2n
+      OH9wqOc1pgPf3pOc/3mcOSXSS5Rs3XDGgeSxAJ4U4YND+OAA8pb0/ufRfkqkUqxvbGDXSzx8
+      +JB4Ik3mIEVjDAtHWq6eGCbHJBOUqmkB+IBv7UK2IY1/EM5UhpuZnqGWK3Dv7TXSiRekjsbT
+      DFe2dQZobEaA41i/+SUMxhk7dDGXxre4THZrl9ffekDEN57HpGYbEDAg14C6CxH/dd/Rq3Fg
+      Xvcd3Ezaj0k1DN5598sALN8a72NS8w09/PkNnQl6a/q67+jlMR1IiwBeivHq1i9A/jj/H/Dp
+      ecBN5LMCHJlwaHq3vv+r4tksUKllZfQmHg5nu/CPcR26/fZtcXm+LJ4VQKElRbhe0pmgmzR5
+      /FHmNOz5+x0RwMvi2RCo2GKB2KnCUeP67uWilCz4t6Re5PIZejS4SeIdJW7UCPBJVi/0/MHr
+      +j/cdnUM/zLkWhp80ICf53QoMUo0XKjZ+jMGDNgowy9z8OOMjvmbjV4a/8tzYwRgu/CdhLYw
+      341CyAffjOse8O1p+M0lWJuCh3lYicAbk/2v1+qONAy9XXBUBGA68Ndb8PN8+yJd0KdDHcn1
+      Xx4jI4CGq7+metzR/x7p43z8BvzDjm4AfgNQutF/mte/P+EDF/j1mH5+vw7vzsBvLEJs4vR6
+      +Q4X6GZZ75qKXvFfRCl9j7NBLeqHBfj2C71AF/JsgHp1dN0UbxYzPH6+Rygyz+yEy/K9+0Nd
+      DVYKvrkLOxX40y/qhvuTI7AVvDmpTzD/XvJinvbmpzIM/b2tdK7/9+/BagT++Ge6R219/Tsz
+      MB/UIopNwEJIv/ZetPt7WG77Nc4j19Cf68cZvQr97ow+nHqrrH8O+8BSemImPfzV0FUAlXSC
+      PH5S8UPC0Qm+9O47Q80yfJKFv9rSjeD37kHUD3+3o4d7S+kY/bIaRNgHf/Km3iTSq/G2/kUU
+      8Idr8Gux9tdslOArm/C7K2dDJ8vVadaNkj6CtGLrrNNWpb1x37TM0zjSVQBKKZKJJLGlRYKG
+      i+2bYOKCs02l9KTtUR7em4XXJ/WOpWRNL9unTf1zwYJcRzjiquHZeJXSI4x9gfdwFfzWshZD
+      xdZfDwunGZjfuaPFtFOBeFUvTsFpCCONfHQZWl2gfEP3eH7A4bRX9d/QzEW/3ro13BJuFlIY
+      S/A0kmcQPI3//ffff39YF0/vvyBxkMVnlTgoO/gaJbaexwlGpwmHBs837j7f5KhYJZ85pNpw
+      qRWzHGQKzM3PYmCTPSoRiYbPuYrD5vpzJqNBNp6uE5lfYm/rKQ3Xz9RkhOJRFl80wnmuaNcx
+      2dzYpFZv8CIeZ2phke3Np7i+EJORMIWjLIFo5NyeJbG7zcFREb9dJpVvoMpp8raf5xvr3L69
+      PPDfJpvcpqyi1LN7HFV9mNkENV+UzadPLnSd1N4O6XyZRmmfoh2huL+FG55j/fPH3F4e9DqK
+      7WcbFCsNcukkVcugkE5gAaVCjYlIFP+AXe7eziaB0BR725s0VIh0Io6tFPW6xcREeKD5m92o
+      8WxjnboN8XichViM9c+f4LoKn89HMBgcrgBc28IfCPBs4ykNQvgNxdobK6x/vk6hZrLx8GOK
+      Vohbsdm+1ylWavgNmAgaWCrIdCRIvlSlUi5RzOc4SKWoOYr52X6eZh+2bTIzN8dRap/pxWVc
+      s4ytauSzJsmdONlsitD8CpF+2jR8mGadhcVFcuk0c7du06gWMa0KpbzJfjJBJp1icuEOoT5q
+      KpYq+LHZ3t6m4QaYn4yQy6cp1xTFwx024wnSR0WWlhbx9fnfjgQUhbrD1vpjLGOS2ckJsod7
+      1NwQ6d2n7O3vk0pXub28gNFnkmLbDUIBg431pziBOaYmQ+RePMcMTJPY/JT9TIZkpsHK8nzv
+      D6VcKjUbA4dQABwjRMDvI5dJUctXyZWz7CSOWFle7PMH1vhwUP4prFoeIzhJMKDYTyYx6xbZ
+      oySJTIXbS33uBT0nq9VtFpcWyBymiS3fopo75CBXA2Xx+acf8//7C0+IG5dh0QAAAABJRU5E
+      rkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='Global Title' width='192'>
+      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
+      7mUOl0RiAAAAAElFTkSuQmCC
     </thumbnail>
   </thumbnails>
 </workbook>

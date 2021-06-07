@@ -604,8 +604,18 @@
             <format attr='stroke-size' scope='rows' value='0' />
             <format attr='line-visibility' scope='rows' value='off' />
           </style-rule>
+          <style-rule element='header'>
+            <format attr='band-color' scope='rows' value='#1b1b1b' />
+            <format attr='band-color' scope='cols' value='#1b1b1b' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='band-color' scope='rows' value='#1b1b1b' />
+            <format attr='band-color' scope='cols' value='#1b1b1b' />
+          </style-rule>
           <style-rule element='table'>
             <format attr='background-color' value='#000000' />
+            <format attr='band-size' scope='rows' value='1' />
+            <format attr='band-size' scope='cols' value='1' />
           </style-rule>
           <style-rule element='dropline'>
             <format attr='stroke-size' scope='rows' value='0' />
@@ -1545,9 +1555,9 @@
           </zone-style>
         </zone>
         <zone _.fcp.SetMembershipControl.false...type='bitmap' _.fcp.SetMembershipControl.true...type-v2='bitmap' h='33296' id='30' is-scaled='1' param='C:/Users/Ertuğrul/Documents/Data Science And ML/Tableau-Data-Visulization/Project/Covid-19 Tracking Dashboard/Pine Needles.png' w='3803' x='45816' y='14159' />
-        <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='12500' id='31' param='vert' w='1931' x='46811' y='22566'>
-          <zone h='12500' id='32' name='Covid Vaccini Needs' w='1931' x='46811' y='22566'>
-            <layout-cache minheight='115' type-h='scalable' type-w='fixed' />
+        <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='11504' id='31' param='vert' w='1931' x='46811' y='23562'>
+          <zone h='11504' id='32' name='Covid Vaccini Needs' show-title='false' w='1931' x='46811' y='23562'>
+            <layout-cache minheight='100' type-h='scalable' type-w='fixed' />
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -1561,14 +1571,14 @@
             <run bold='true' fontname='Comic Sans MS' fontsize='10'>COVID-19 vaccine need</run>
           </formatted-text>
         </zone>
-        <zone _.fcp.SetMembershipControl.false...type='bitmap' _.fcp.SetMembershipControl.true...type-v2='bitmap' h='10841' id='79' is-scaled='1' param='C:/Users/Ertuğrul/Desktop/covid-19-4996393_1920.png' w='5559' x='44178' y='42699' />
+        <zone _.fcp.SetMembershipControl.false...type='bitmap' _.fcp.SetMembershipControl.true...type-v2='bitmap' h='10841' id='79' is-scaled='1' param='C:/Users/Ertuğrul/Documents/Data Science And ML/Tableau-Data-Visulization/Project/Covid-19 Tracking Dashboard/Covid-19.png' w='5559' x='44178' y='42699' />
       </zones>
       <devicelayouts>
         <devicelayout auto-generated='true' name='Phone'>
-          <size maxheight='1800' minheight='1800' sizing-mode='vscroll' />
+          <size maxheight='1750' minheight='1750' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='83' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98230' id='82' param='vert' w='99064' x='468' y='885'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='86' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98230' id='85' param='vert' w='99064' x='468' y='885'>
                 <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' forceUpdate='true' h='8067' id='13' w='35869' x='30135' y='885'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontname='Engravers MT' fontsize='16'>USA And Canada Covid-19 </run>
@@ -1622,8 +1632,8 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='92' h='12500' id='32' is-fixed='true' name='Covid Vaccini Needs' w='1931' x='46811' y='22566'>
-                  <layout-cache minheight='115' type-h='scalable' type-w='fixed' />
+                <zone fixed-size='85' h='11504' id='32' is-fixed='true' name='Covid Vaccini Needs' show-title='false' w='1931' x='46811' y='23562'>
+                  <layout-cache minheight='100' type-h='scalable' type-w='fixed' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1632,7 +1642,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone _.fcp.SetMembershipControl.false...type='bitmap' _.fcp.SetMembershipControl.true...type-v2='bitmap' fixed-size='86' h='10841' id='79' is-fixed='true' is-scaled='1' param='C:/Users/Ertuğrul/Desktop/covid-19-4996393_1920.png' w='5559' x='44178' y='42699'>
+                <zone _.fcp.SetMembershipControl.false...type='bitmap' _.fcp.SetMembershipControl.true...type-v2='bitmap' fixed-size='86' h='10841' id='79' is-fixed='true' is-scaled='1' param='C:/Users/Ertuğrul/Documents/Data Science And ML/Tableau-Data-Visulization/Project/Covid-19 Tracking Dashboard/Covid-19.png' w='5559' x='44178' y='42699'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1828,7 +1838,7 @@
       <active id='3' />
       <simple-id uuid='{18D8E294-5990-49D1-8D30-4A038A8C9543}' />
     </window>
-    <window class='worksheet' hidden='true' name='Covid Vaccini Needs'>
+    <window class='worksheet' name='Covid Vaccini Needs'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1915,6 +1925,18 @@
     </window>
   </windows>
   <thumbnails>
+    <thumbnail height='192' name='Covid Vaccini Needs' width='64'>
+      iVBORw0KGgoAAAANSUhEUgAAAEAAAADACAYAAAC02WUGAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAABtUlEQVR4nO3UsQ0CQQwAQQ7RDn18QrUk9EFB9zFPhPRigtvN7Gi1sjzmnPOyMFctoCmA
+      FtDcjosxhvBgLH8BBdACmq8f8Cvv53aGx9+4P14f8/IXUAAtoCmAFtAUQAtoCqAFNAXQApoC
+      aAFNAbSApgBaQFMALaApgBbQFEALaAqgBTQF0AKaAmgBTQG0gKYAWkBTAC2gKYAW0BRAC2gK
+      oAU0BdACmgJoAU0BtICmAFpAUwAtoCmAFtAUQAtoCqAFNAXQApoCaAFNAbSApgBaQFMALaAp
+      gBbQFEALaAqgBTQF0AKaAmgBTQG0gKYAWkBTAC2gKYAW0BRAC2gKoAU0BdACmgJoAU0BtICm
+      AFpAUwAtoCmAFtAUQAtoCqAFNAXQApoCaAFNAbSApgBaQFMALaApgBbQFEALaAqgBTQF0AKa
+      AmgBTQG0gKYAWkBTAC2gKYAW0BRAC2gKoAU0BdACmgJoAU0BtICmAFpAUwAtoCmAFtAUQAto
+      CqAFNAXQApoCaAFNAbSApgBaQFMALaApgBbQFEALaAqgBTQF0AKaAmgBTQG0gKYAWkBTAC2g
+      KYAW0BRAC2h2SoEIg7QEZZAAAAAASUVORK5CYII=
+    </thumbnail>
     <thumbnail height='192' name='Dashboard 1' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
       AAAgAElEQVR4nOy9d5Bl133n9znnhpdTv85pehImYIicQRIESUHkigS11ooKFiXR1notlXa9
